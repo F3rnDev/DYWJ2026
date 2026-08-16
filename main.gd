@@ -1,6 +1,0 @@
-extends Node3D
-
-
-func _ready() -> void:
-	#WHEN YOU PAUSE THE GAME, OR MAKE A SPECIFIC MECHANIC N SHIT, CHANGE THIS MOUSE MODE
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

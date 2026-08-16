@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://slc32vlgosba"]
+
+[ext_resource type="Script" uid="uid://b6ldrni77axyu" path="res://Scenes/main.gd" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dfyxw6cotyfgr" path="res://GameAssets/player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bb8gge0trvrvk" path="res://GameAssets/ui/ui.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cwdunn8mflrwe" path="res://GameAssets/Interactor/playButton.tscn" id="4_jjvhh"]
+
+[sub_resource type="Environment" id="Environment_ig7tw"]
+background_mode = 1
+background_color = Color(0.22819898, 0.08893133, 0.096691675, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
+size = Vector3(13.751831, 1, 17.456787)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
+size = Vector3(15.093262, 0.97094727, 19.919312)
+
+[node name="Node3D" type="Node3D" unique_id=955176121]
+script = ExtResource("1_bo1nx")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=948463392]
+environment = SubResource("Environment_ig7tw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=949655485]
+transform = Transform3D(1, 0, 0, 0, 0.6338336, 0.77346945, 0, -0.77346945, 0.6338336, 0, 6.716951, 5.247328)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=739199342]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=417568471]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.493103, 0, -0.41052246)
+shape = SubResource("BoxShape3D_bhunq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1559660297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8005371, -0.014526367, -0.7756958)
+mesh = SubResource("BoxMesh_bhunq")
+
+[node name="CharacterBody3D" parent="." unique_id=1790436916 instance=ExtResource("2_bo1nx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059216, 0)
+
+[node name="UI" parent="." unique_id=1776955269 instance=ExtResource("3_8gbba")]
+
+[node name="PlayButton" parent="." unique_id=2061101808 instance=ExtResource("4_jjvhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0386424, -4.8684473)
+
+[connection signal="canStartInteract" from="CharacterBody3D" to="." method="_on_character_body_3d_can_start_interact"]
+[connection signal="addPoint" from="PlayButton" to="." method="_on_play_button_add_point"]

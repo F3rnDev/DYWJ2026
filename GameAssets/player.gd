@@ -7,18 +7,46 @@ var lookDir:Vector2
 @onready var camera = $Camera3D
 var camSens = 50
 
+#RayCast
+@onready var raycast = $Camera3D/RayCast3D
+var raycastedObject:Interactor = null
+
+signal canStartInteract(can:bool)
+
 func rotateCam(delta, sensMod = 1.0):
 	rotation.y -= lookDir.x * camSens * delta
 	camera.rotation.x = clamp(camera.rotation.x - lookDir.y * camSens * sensMod * delta, -1.5, 1.5)
 	
 	lookDir = Vector2.ZERO
 
+func checkRaycast():
+	var alreadyCollided = true if raycastedObject != null else false
+	if raycast.is_colliding() == alreadyCollided:
+		return
+	
+	if raycast.is_colliding() and raycast.get_collider().is_in_group("Interactor"):
+		raycastedObject = raycast.get_collider()
+		canStartInteract.emit(true)
+	else:
+		raycastedObject = null
+		canStartInteract.emit(false)
+
+func Interact():
+	if raycastedObject != null:
+		raycastedObject.playInteractor()
+
 func _process(delta: float) -> void:
 	rotateCam(delta)
+	
+	checkRaycast()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion: lookDir = event.relative * 0.01
 	
+	if Input.is_action_just_pressed("Interact"):
+		Interact()
+	
+	#DEBUG
 	if Input.is_physical_key_pressed(KEY_0):
 		camera._camera_shake(0.5, 2.0)
 

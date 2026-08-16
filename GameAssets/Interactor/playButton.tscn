@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cwdunn8mflrwe"]
+
+[ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_84umq"]
+[ext_resource type="Script" uid="uid://dowsaj0jej423" path="res://playButton.gd" id="2_xfin3"]
+
+[node name="PlayButton" unique_id=2061101808 instance=ExtResource("1_84umq")]
+script = ExtResource("2_xfin3")

@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://dfyxw6cotyfgr"]
 
-[ext_resource type="Script" uid="uid://d3oyl7ellj4i8" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://ddoenuiurec0p" path="res://playerCamera.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://d3oyl7ellj4i8" path="res://GameAssets/player.gd" id="1_sglki"]
+[ext_resource type="Script" uid="uid://ddoenuiurec0p" path="res://playerCamera.gd" id="2_w2mmh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bhunq"]
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1790436916]
-script = ExtResource("1_4flbx")
+script = ExtResource("1_sglki")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=554234496]
 mesh = SubResource("CapsuleMesh_bhunq")
@@ -18,4 +18,10 @@ shape = SubResource("CapsuleShape3D_bhunq")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1239735325]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5524825, -0.46217573)
-script = ExtResource("2_onrkg")
+script = ExtResource("2_w2mmh")
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D" unique_id=1423912297]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.027487993, 0.46217573)
+target_position = Vector3(2.17, 0, 0)
+collide_with_areas = true
+collide_with_bodies = false
