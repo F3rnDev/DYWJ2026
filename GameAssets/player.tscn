@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dfyxw6cotyfgr"]
 
 [ext_resource type="Script" uid="uid://d3oyl7ellj4i8" path="res://GameAssets/player.gd" id="1_sglki"]
-[ext_resource type="Script" uid="uid://ddoenuiurec0p" path="res://playerCamera.gd" id="2_w2mmh"]
+[ext_resource type="Script" uid="uid://ddoenuiurec0p" path="res://GameAssets/playerCamera.gd" id="2_w2mmh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bhunq"]
 
