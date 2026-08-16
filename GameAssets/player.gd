@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 5.0
+var SPEED = 5.0
 
 #Camera Logic
 var lookDir:Vector2

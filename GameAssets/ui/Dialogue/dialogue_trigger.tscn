@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dwm38khy61aj5"]
+
+[ext_resource type="Script" uid="uid://b074uve6loxt2" path="res://dialogue_trigger.gd" id="1_j3w0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+
+[node name="DialogueTrigger" type="Node3D" unique_id=1049267570]
+script = ExtResource("1_j3w0q")
+dialogues = Array[String](["Parabéns! Você foi um dos voluntários para nosso programa.", "Seu dever é deixar o núcleo no centro da sala estável.", "Infelizmente temos poucos voluntários e portanto você será o único responsável.", "Ao lado você verá um manual de instruções caso não saiba como proceder."])
+
+[node name="trigger" type="Area3D" parent="." unique_id=1058900356]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="trigger" unique_id=1051283088]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[connection signal="body_entered" from="trigger" to="." method="start_dialogue"]
