@@ -7,9 +7,11 @@ var finalVal = 0
 func _ready() -> void:
 	#WHEN YOU PAUSE THE GAME, OR MAKE A SPECIFIC MECHANIC N SHIT, CHANGE THIS MOUSE MODE
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pass
 
-func _on_character_body_3d_can_start_interact(can: bool) -> void:
+func _on_character_body_3d_can_start_interact(can: bool, type:Crosshair.Types) -> void:
 	ui.canInteract(can)
+	ui.setCrosshair(type)
 
 #Debug at this point
 func _on_play_button_add_point(value: Variant) -> void:

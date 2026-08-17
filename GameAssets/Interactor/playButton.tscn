@@ -3,5 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_84umq"]
 [ext_resource type="Script" uid="uid://dowsaj0jej423" path="res://GameAssets/Interactor/playButton.gd" id="2_xfin3"]
 
-[node name="PlayButton" unique_id=2061101808 instance=ExtResource("1_84umq")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_xfin3"]
+radius = 0.28128666
+
+[node name="PlayButton" unique_id=2061101808 groups=["PlayButton"] instance=ExtResource("1_84umq")]
 script = ExtResource("2_xfin3")
+
+[node name="MeshInstance3D" parent="." index="0" unique_id=1202473228]
+transform = Transform3D(0.9999879, 0, -0.004919967, 0, 1, 0, 0.004919967, 0, 0.9999879, 0, 0, 0)
+visible = false
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1542510122]
+shape = SubResource("SphereShape3D_xfin3")

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bwn748w8ho7wt"]
 
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_6dale"]
 [ext_resource type="Script" uid="uid://cfk4rydj5tobc" path="res://GameAssets/ui/point_add.gd" id="1_lx5eb"]
 
 [sub_resource type="Animation" id="Animation_lx5eb"]
@@ -114,6 +115,7 @@ _data = {
 billboard = 1
 no_depth_test = true
 text = "1dadeas"
+font = ExtResource("1_6dale")
 script = ExtResource("1_lx5eb")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1383731699]

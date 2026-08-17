@@ -11,7 +11,7 @@ var camSens = 50
 @onready var raycast = $Camera3D/RayCast3D
 var raycastedObject:Interactor = null
 
-signal canStartInteract(can:bool)
+signal canStartInteract(can:bool, crosshairType:Crosshair.Types)
 
 func rotateCam(delta, sensMod = 1.0):
 	rotation.y -= lookDir.x * camSens * delta
@@ -24,12 +24,17 @@ func checkRaycast():
 	if raycast.is_colliding() == alreadyCollided:
 		return
 	
-	if raycast.is_colliding() and raycast.get_collider().is_in_group("Interactor"):
-		raycastedObject = raycast.get_collider()
-		canStartInteract.emit(true)
+	var collider = raycast.get_collider()
+	if raycast.is_colliding() and collider.is_in_group("Interactor"):
+		raycastedObject = collider
 	else:
 		raycastedObject = null
-		canStartInteract.emit(false)
+	
+	var renderCrosshair = Crosshair.Types.CROSSHAIR
+	if collider != null and "crosshair" in collider:
+		renderCrosshair = collider.crosshair
+	
+	canStartInteract.emit(raycastedObject != null, renderCrosshair)
 
 func Interact():
 	if raycastedObject != null:

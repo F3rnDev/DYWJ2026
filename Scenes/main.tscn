@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cwdunn8mflrwe" path="res://GameAssets/Interactor/playButton.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dwm38khy61aj5" path="res://GameAssets/ui/Dialogue/dialogue_trigger.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://q76nfy7djljs" path="res://GameAssets/ui/Dialogue/dialogue_ui.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://c016m60yr477t" path="res://Assets/Models/cenario.tscn" id="7_6bp64"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
@@ -44,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059216, 0)
 [node name="UI" parent="." unique_id=1776955269 instance=ExtResource("3_8gbba")]
 
 [node name="PlayButton" parent="." unique_id=2061101808 instance=ExtResource("4_jjvhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0386424, -4.8684473)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0956225, 1.4504602, 6.7967186)
 
 [node name="DialogueUI" parent="." unique_id=1982816093 instance=ExtResource("6_6bp64")]
 
@@ -55,6 +56,9 @@ mesh = SubResource("BoxMesh_g4v7s")
 [node name="DialogueTrigger" parent="MeshInstance3D" unique_id=1049267570 node_paths=PackedStringArray("speaker") instance=ExtResource("5_21xkr")]
 transform = Transform3D(3.8450005, 0, 0, 0, 3.8450005, 0, 0, 0, 3.8450005, 0.097305775, -0.94892967, 0.2868476)
 speaker = NodePath("..")
+
+[node name="cenario" parent="." unique_id=541235601 instance=ExtResource("7_6bp64")]
+transform = Transform3D(0.9999991, 0.0011899023, -0.0005969348, -0.0011901908, 0.99999917, -0.00047689787, 0.00059635926, 0.00047761737, 0.9999997, -1.3914943, 1.7360744, 0.42645454)
 
 [connection signal="canStartInteract" from="CharacterBody3D" to="." method="_on_character_body_3d_can_start_interact"]
 [connection signal="addPoint" from="PlayButton" to="." method="_on_play_button_add_point"]

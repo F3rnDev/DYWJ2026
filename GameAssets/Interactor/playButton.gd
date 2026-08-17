@@ -2,6 +2,8 @@ extends Interactor
 
 class_name PlayButton
 
+var crosshair:Crosshair.Types = Crosshair.Types.READYTOCLICK
+
 @onready var pointAdd = preload("res://GameAssets/ui/pointAdd.tscn")
 
 signal addPoint(value:int)

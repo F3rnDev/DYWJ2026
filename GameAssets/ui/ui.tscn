@@ -1,17 +1,21 @@
 [gd_scene format=3 uid="uid://bb8gge0trvrvk"]
 
 [ext_resource type="Script" uid="uid://sj53a2oi1h57" path="res://GameAssets/ui/ui.gd" id="1_k4sr8"]
-
-[sub_resource type="Gradient" id="Gradient_0xm2m"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_h2yge"]
-gradient = SubResource("Gradient_0xm2m")
+[ext_resource type="Texture2D" uid="uid://dm03xikty72lj" path="res://Assets/Images/Hands1.png" id="2_voruu"]
+[ext_resource type="Texture2D" uid="uid://b0bvhtgo5q3dq" path="res://Assets/Images/Hands2.png" id="3_jc6w3"]
+[ext_resource type="Texture2D" uid="uid://d2higur5ev8n5" path="res://Assets/Images/Hands3.png" id="4_u07w7"]
 
 [node name="UI" type="CanvasLayer" unique_id=1776955269]
 script = ExtResource("1_k4sr8")
+crosshairDict = Dictionary[int, Texture]({
+0: ExtResource("2_voruu"),
+1: ExtResource("3_jc6w3"),
+2: ExtResource("4_u07w7")
+})
 
 [node name="CrossHair" type="TextureRect" parent="." unique_id=1335356618]
+texture_filter = 1
+custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -23,7 +27,7 @@ offset_right = 5.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_h2yge")
+texture = ExtResource("2_voruu")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="." unique_id=1462744938]
@@ -39,4 +43,5 @@ offset_right = 70.5
 offset_bottom = 47.76001
 grow_horizontal = 2
 grow_vertical = 2
-text = "Press E to Interact"
+text = "Click to Interact"
+horizontal_alignment = 1
