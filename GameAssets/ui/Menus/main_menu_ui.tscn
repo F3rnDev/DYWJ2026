@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://bqubfjsxvpono"]
+
+[ext_resource type="Script" uid="uid://d132tqxqmk1d2" path="res://GameAssets/ui/Menus/main_menu_ui.gd" id="1_8gewe"]
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_a8ita"]
+[ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_m2x1y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+font = ExtResource("1_a8ita")
+font_size = 80
+font_color = Color(0, 0, 0, 1)
+outline_size = 10
+
+[node name="MainMenu" type="CanvasLayer" unique_id=81749948 node_paths=PackedStringArray("play", "settings", "quit")]
+script = ExtResource("1_8gewe")
+play = NodePath("Play")
+settings = NodePath("Settings")
+quit = NodePath("Quit")
+tween_trans = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1546539708]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -284.5
+offset_right = 580.0
+offset_bottom = 284.5
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="Tittle" type="Label" parent="." unique_id=1022588818]
+offset_left = 18.999996
+offset_top = 118.00001
+offset_right = 606.0
+offset_bottom = 219.0
+rotation = -0.17453292
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
+text = "Unstable core"
+label_settings = SubResource("LabelSettings_g4v7s")
+
+[node name="Play" type="Button" parent="." unique_id=817928769]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 64.0
+offset_top = 256.5
+offset_right = 364.0
+offset_bottom = 332.5
+rotation = -0.17453292
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"MainMenuBtn"
+text = "Play"
+
+[node name="Settings" type="Button" parent="." unique_id=166784408]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 64.0
+offset_top = 412.5
+offset_right = 364.0
+offset_bottom = 488.5
+rotation = -0.17453292
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"MainMenuBtn"
+text = "Settings"
+
+[node name="Quit" type="Button" parent="." unique_id=295377914]
+custom_minimum_size = Vector2(300, 0)
+offset_left = 64.0
+offset_top = 568.5
+offset_right = 364.0
+offset_bottom = 644.5
+rotation = -0.17453292
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"MainMenuBtn"
+text = "Quit"
+
+[connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]

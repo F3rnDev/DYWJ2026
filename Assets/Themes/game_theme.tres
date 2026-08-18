@@ -1,0 +1,27 @@
+[gd_resource type="Theme" format=3 uid="uid://dcndfgcjnjr5a"]
+
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_551l1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_551l1"]
+bg_color = Color(0.2554662, 0.20957237, 0.31521925, 1)
+skew = Vector2(-0.3, 0)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 50.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt1l0"]
+bg_color = Color(0.20784314, 0.16862746, 0.25882354, 1)
+skew = Vector2(-0.3, 0)
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[resource]
+MainMenuBtn/base_type = &"Button"
+MainMenuBtn/colors/font_color = Color(0.8980392, 0.80784315, 0.7058824, 1)
+MainMenuBtn/font_sizes/font_size = 50
+MainMenuBtn/fonts/font = ExtResource("1_551l1")
+MainMenuBtn/styles/hover = SubResource("StyleBoxFlat_551l1")
+MainMenuBtn/styles/normal = SubResource("StyleBoxFlat_mt1l0")
