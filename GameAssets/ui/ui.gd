@@ -22,6 +22,12 @@ func interactCrosshair(interacted:bool):
 				crosshairImg.texture = crosshairDict[Crosshair.Types.CLICK]
 			else:
 				crosshairImg.texture = crosshairDict[Crosshair.Types.READYTOCLICK]
+		
+		Crosshair.Types.READYTOHOLD:
+			if interacted:
+				crosshairImg.texture = crosshairDict[Crosshair.Types.HOLD]
+			else:
+				crosshairImg.texture = crosshairDict[Crosshair.Types.READYTOHOLD]
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact"):
