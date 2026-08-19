@@ -10,8 +10,7 @@ radius = 0.28128666
 script = ExtResource("2_xfin3")
 
 [node name="MeshInstance3D" parent="." index="0" unique_id=1202473228]
-transform = Transform3D(0.9999879, 0, -0.004919967, 0, 1, 0, 0.004919967, 0, 0.9999879, 0, 0, 0)
-visible = false
+transform = Transform3D(0.9999879, 0, -0.004919967, 0, 1, 0, 0.004919967, 0, 0.9999879, -1.2837438e-05, 0, 0.0026092213)
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1542510122]
 shape = SubResource("SphereShape3D_xfin3")

@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://moebvbwkhawx"]
+
+[ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_kdk0h"]
+[ext_resource type="Script" uid="uid://bpqexn85iyatn" path="res://GameAssets/Interactor/lever.gd" id="2_01kfv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_01kfv"]
+radius = 0.2575043
+
+[node name="lever" unique_id=2061101808 instance=ExtResource("1_kdk0h")]
+script = ExtResource("2_01kfv")
+min_angle = -45.0
+max_angle = 45.0
+mouse_sensitivity = 0.5
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1542510122]
+shape = SubResource("SphereShape3D_01kfv")

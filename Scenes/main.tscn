@@ -6,17 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cwdunn8mflrwe" path="res://GameAssets/Interactor/playButton.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dwm38khy61aj5" path="res://GameAssets/ui/Dialogue/dialogue_trigger.tscn" id="5_21xkr"]
 [ext_resource type="PackedScene" uid="uid://q76nfy7djljs" path="res://GameAssets/ui/Dialogue/dialogue_ui.tscn" id="6_6bp64"]
+[ext_resource type="PackedScene" uid="uid://moebvbwkhawx" path="res://GameAssets/Interactor/lever.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://c016m60yr477t" path="res://Assets/Models/cenario.tscn" id="7_6bp64"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
 background_color = Color(0.22819898, 0.08893133, 0.096691675, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_bhunq"]
-size = Vector3(13.751831, 1, 17.456787)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bhunq"]
-size = Vector3(15.093262, 0.97094727, 19.919312)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
 
@@ -29,36 +24,34 @@ environment = SubResource("Environment_ig7tw")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=949655485]
 transform = Transform3D(1, 0, 0, 0, 0.6338336, 0.77346945, 0, -0.77346945, 0.6338336, 0, 6.716951, 5.247328)
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=739199342]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=417568471]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.493103, 0, -0.41052246)
-shape = SubResource("BoxShape3D_bhunq")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=1559660297]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8005371, -0.014526367, -0.7756958)
-mesh = SubResource("BoxMesh_bhunq")
-
 [node name="CharacterBody3D" parent="." unique_id=1790436916 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7059216, 0)
 
 [node name="UI" parent="." unique_id=1776955269 instance=ExtResource("3_8gbba")]
 
-[node name="PlayButton" parent="." unique_id=2061101808 instance=ExtResource("4_jjvhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0956225, 1.4504602, 6.7967186)
+[node name="DialogueUI" parent="UI" unique_id=1982816093 instance=ExtResource("6_6bp64")]
 
-[node name="DialogueUI" parent="." unique_id=1982816093 instance=ExtResource("6_6bp64")]
+[node name="Objects" type="Node3D" parent="." unique_id=1540256209]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=528784026]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 4.95859, 1.788912, -2.6975112)
+[node name="Interactables" type="Node3D" parent="Objects" unique_id=2108349546]
+
+[node name="PlayButton" parent="Objects/Interactables" unique_id=2061101808 instance=ExtResource("4_jjvhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.075405, 1.553153, 6.7967186)
+
+[node name="lever" parent="Objects/Interactables" unique_id=1850358927 instance=ExtResource("6_344ge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4870114, 1.9952476, 7.2750854)
+mouse_sensitivity = 1.0
+
+[node name="cenario" parent="Objects" unique_id=541235601 instance=ExtResource("7_6bp64")]
+transform = Transform3D(0.9999991, 0.0011899023, -0.0005969348, -0.0011901908, 0.99999917, -0.00047689787, 0.00059635926, 0.00047761737, 0.9999997, -1.3914943, 1.7360744, 0.42645454)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects" unique_id=528784026]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 4.95859, 1.788912, -14.3611145)
 mesh = SubResource("BoxMesh_g4v7s")
 
-[node name="DialogueTrigger" parent="MeshInstance3D" unique_id=1049267570 node_paths=PackedStringArray("speaker") instance=ExtResource("5_21xkr")]
+[node name="DialogueTrigger" parent="Objects/MeshInstance3D" unique_id=1049267570 node_paths=PackedStringArray("speaker") instance=ExtResource("5_21xkr")]
 transform = Transform3D(3.8450005, 0, 0, 0, 3.8450005, 0, 0, 0, 3.8450005, 0.097305775, -0.94892967, 0.2868476)
 speaker = NodePath("..")
 
-[node name="cenario" parent="." unique_id=541235601 instance=ExtResource("7_6bp64")]
-transform = Transform3D(0.9999991, 0.0011899023, -0.0005969348, -0.0011901908, 0.99999917, -0.00047689787, 0.00059635926, 0.00047761737, 0.9999997, -1.3914943, 1.7360744, 0.42645454)
-
 [connection signal="canStartInteract" from="CharacterBody3D" to="." method="_on_character_body_3d_can_start_interact"]
-[connection signal="addPoint" from="PlayButton" to="." method="_on_play_button_add_point"]
+[connection signal="addPoint" from="Objects/Interactables/PlayButton" to="." method="_on_play_button_add_point"]

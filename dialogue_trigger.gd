@@ -1,9 +1,9 @@
 extends Node3D
 
 
-@onready var dialogue_ui = get_tree().current_scene.get_node("DialogueUI/Canvas")
-@onready var dialogue_text: RichTextLabel = get_tree().current_scene.get_node("DialogueUI/Canvas/DialogueText")
-@onready var dialogue_animation: AnimationPlayer = get_tree().current_scene.get_node("DialogueUI/Canvas/AnimationPlayer")
+@onready var dialogue_ui = get_tree().current_scene.get_node("UI/DialogueUI/Canvas")
+@onready var dialogue_text: RichTextLabel = get_tree().current_scene.get_node("UI/DialogueUI/Canvas/DialogueText")
+@onready var dialogue_animation: AnimationPlayer = get_tree().current_scene.get_node("UI/DialogueUI/Canvas/AnimationPlayer")
 @onready var player: CharacterBody3D = get_tree().current_scene.get_node("CharacterBody3D")
 @export var speaker: Node3D
 

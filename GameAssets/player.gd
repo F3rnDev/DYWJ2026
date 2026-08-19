@@ -27,7 +27,11 @@ func checkRaycast():
 	var collider = raycast.get_collider()
 	if raycast.is_colliding() and collider.is_in_group("Interactor"):
 		raycastedObject = collider
+		raycastedObject.activateInteractor()
 	else:
+		if raycastedObject != null:
+			raycastedObject.resetInteractor()
+		
 		raycastedObject = null
 	
 	var renderCrosshair = Crosshair.Types.CROSSHAIR
@@ -50,6 +54,8 @@ func _input(event: InputEvent) -> void:
 	
 	if Input.is_action_just_pressed("Interact"):
 		Interact()
+	elif Input.is_action_just_released("Interact") and raycastedObject != null:
+		raycastedObject.resetInteractor()
 	
 	#DEBUG
 	if Input.is_physical_key_pressed(KEY_0):
