@@ -8,7 +8,10 @@ extends CanvasLayer
 @export var tween_trans: Tween.TransitionType
 
 func _ready() -> void:
+	if OS.get_name() == "Web":
+		quit.queue_free()
 	settings_menu.visible = false
+	
 
 func _on_play_mouse_entered() -> void:
 	var tween = create_tween()
