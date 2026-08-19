@@ -41,6 +41,7 @@ func _on_quit_mouse_exited() -> void:
 
 func _on_settings_button_down() -> void:
 	settings_menu.visible = true
+	settings_menu.animation_player.play("on_effect")
 
 
 func _on_quit_button_down() -> void:
