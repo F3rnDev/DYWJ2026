@@ -4,13 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://dm03xikty72lj" path="res://Assets/Images/Hands1.png" id="2_voruu"]
 [ext_resource type="Texture2D" uid="uid://b0bvhtgo5q3dq" path="res://Assets/Images/Hands2.png" id="3_jc6w3"]
 [ext_resource type="Texture2D" uid="uid://d2higur5ev8n5" path="res://Assets/Images/Hands3.png" id="4_u07w7"]
+[ext_resource type="Texture2D" uid="uid://wv5cpxst3srb" path="res://Assets/Images/Hands4.png" id="5_o8jfm"]
+[ext_resource type="Texture2D" uid="uid://bko6nxv7cmbme" path="res://Assets/Images/Hands5.png" id="6_q8rnn"]
 
 [node name="UI" type="CanvasLayer" unique_id=1776955269]
 script = ExtResource("1_k4sr8")
 crosshairDict = Dictionary[int, Texture]({
 0: ExtResource("2_voruu"),
 1: ExtResource("3_jc6w3"),
-2: ExtResource("4_u07w7")
+2: ExtResource("4_u07w7"),
+3: ExtResource("5_o8jfm"),
+4: ExtResource("6_q8rnn")
 })
 
 [node name="CrossHair" type="TextureRect" parent="." unique_id=1335356618]
