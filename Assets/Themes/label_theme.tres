@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bv7dl78yohqrs"]
+
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_b4aic"]
+
+[resource]
+font = ExtResource("1_b4aic")
+font_size = 64
+font_color = Color(0.41960785, 0.9490196, 0.45490196, 1)

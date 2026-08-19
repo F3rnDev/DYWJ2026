@@ -1,0 +1,275 @@
+[gd_scene format=3 uid="uid://cfu4jqwlha7tr"]
+
+[ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_b4hw8"]
+[ext_resource type="Script" uid="uid://0cf6j6yi3lp7" path="res://GameAssets/ui/Menus/settings_menu_ui.gd" id="1_soca4"]
+[ext_resource type="LabelSettings" uid="uid://bv7dl78yohqrs" path="res://Assets/Themes/label_theme.tres" id="2_ksire"]
+[ext_resource type="LabelSettings" uid="uid://v1mt8f7cj5pl" path="res://Assets/Themes/section_theme.tres" id="4_knv6v"]
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="5_yxxqv"]
+[ext_resource type="LabelSettings" uid="uid://x6aqe7gcgyxu" path="res://Assets/Themes/option_audio.tres" id="6_o2ioj"]
+[ext_resource type="Shader" uid="uid://djvfhf0wvqcyo" path="res://GameAssets/ui/Menus/ScreenEffect/crt_effect.gdshader" id="7_o2ioj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qi4d7"]
+font = ExtResource("5_yxxqv")
+font_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2ioj"]
+shader = ExtResource("7_o2ioj")
+
+[sub_resource type="Animation" id="Animation_o2ioj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nu0li"]
+resource_name = "on_effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.59999996),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 0.05), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2t0m1"]
+_data = {
+&"RESET": SubResource("Animation_o2ioj"),
+&"on_effect": SubResource("Animation_nu0li")
+}
+
+[node name="SettingsMenu" type="Control" unique_id=1746633931 node_paths=PackedStringArray("apply_btn")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_soca4")
+apply_btn = NodePath("Panel/MarginContainer/VBoxContainer/Apply")
+
+[node name="Background" type="ColorRect" parent="." unique_id=351049820]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.035757203, 0.11787916, 0.03575843, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=325782678]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b4hw8")
+theme_type_variation = &"SettingsPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=2001150266]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer" unique_id=728265748]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="TittleMenu" type="Label" parent="Panel/MarginContainer/VBoxContainer" unique_id=1964810273]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_b4hw8")
+theme_type_variation = &"TittleMenu"
+text = "Settings"
+label_settings = ExtResource("2_ksire")
+
+[node name="VideoSettings" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=662479348]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TittleSection" type="Label" parent="Panel/MarginContainer/VBoxContainer/VideoSettings" unique_id=830672171]
+layout_mode = 2
+text = "Video"
+label_settings = ExtResource("4_knv6v")
+
+[node name="HSeparator" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/VideoSettings" unique_id=599085832]
+layout_mode = 2
+theme = ExtResource("1_b4hw8")
+theme_type_variation = &"SettingSeparator"
+
+[node name="FullscreenOption" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/VideoSettings" unique_id=1909070894]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/MarginContainer/VBoxContainer/VideoSettings/FullscreenOption" unique_id=1061287821]
+layout_mode = 2
+text = "Fullscreen"
+label_settings = SubResource("LabelSettings_qi4d7")
+
+[node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/VBoxContainer/VideoSettings/FullscreenOption" unique_id=1921588217]
+layout_mode = 2
+
+[node name="AudioSettings" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer" unique_id=1579801986]
+layout_mode = 2
+
+[node name="TittleSection" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings" unique_id=856824222]
+layout_mode = 2
+text = "Audio"
+label_settings = ExtResource("4_knv6v")
+
+[node name="HSeparator2" type="HSeparator" parent="Panel/MarginContainer/VBoxContainer/AudioSettings" unique_id=1780329317]
+layout_mode = 2
+theme = ExtResource("1_b4hw8")
+theme_type_variation = &"SettingSeparator"
+
+[node name="Master" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AudioSettings" unique_id=873767826]
+layout_mode = 2
+
+[node name="ID" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=849213497]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Master"
+label_settings = ExtResource("6_o2ioj")
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=1556226250]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Percent" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Master" unique_id=837856177]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("6_o2ioj")
+horizontal_alignment = 2
+
+[node name="Music" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AudioSettings" unique_id=384199164]
+layout_mode = 2
+
+[node name="ID" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=528826833]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "Music"
+label_settings = ExtResource("6_o2ioj")
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=937196763]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Percent" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/Music" unique_id=1802534182]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("6_o2ioj")
+horizontal_alignment = 2
+
+[node name="SFX" type="HBoxContainer" parent="Panel/MarginContainer/VBoxContainer/AudioSettings" unique_id=1867515409]
+layout_mode = 2
+
+[node name="ID" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/SFX" unique_id=563686224]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "SFX"
+label_settings = ExtResource("6_o2ioj")
+
+[node name="HSlider" type="HSlider" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/SFX" unique_id=1464364373]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Percent" type="Label" parent="Panel/MarginContainer/VBoxContainer/AudioSettings/SFX" unique_id=1824430683]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+text = "100%"
+label_settings = ExtResource("6_o2ioj")
+horizontal_alignment = 2
+
+[node name="Apply" type="Button" parent="Panel/MarginContainer/VBoxContainer" unique_id=803130375]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_b4hw8")
+theme_type_variation = &"SettingsButtons"
+text = "Apply"
+
+[node name="Control" type="ColorRect" parent="." unique_id=1457606031]
+material = SubResource("ShaderMaterial_o2ioj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=794240873]
+libraries/ = SubResource("AnimationLibrary_2t0m1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=216355642]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Apply" to="." method="_on_apply_button_down"]

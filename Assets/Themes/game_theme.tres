@@ -18,6 +18,28 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_g4v7s"]
+color = Color(0.18431373, 0.4509804, 0.20392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4hw8"]
+bg_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alu7c"]
+bg_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2uh1n"]
+bg_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
 [resource]
 MainMenuBtn/base_type = &"Button"
 MainMenuBtn/colors/font_color = Color(0.8980392, 0.80784315, 0.7058824, 1)
@@ -25,3 +47,14 @@ MainMenuBtn/font_sizes/font_size = 50
 MainMenuBtn/fonts/font = ExtResource("1_551l1")
 MainMenuBtn/styles/hover = SubResource("StyleBoxFlat_551l1")
 MainMenuBtn/styles/normal = SubResource("StyleBoxFlat_mt1l0")
+SettingSeparator/base_type = &"HSeparator"
+SettingSeparator/styles/separator = SubResource("StyleBoxLine_g4v7s")
+SettingsButtons/base_type = &"Button"
+SettingsButtons/colors/font_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
+SettingsButtons/colors/font_hover_color = Color(0.18431373, 0.4509804, 0.20392157, 1)
+SettingsButtons/font_sizes/font_size = 24
+SettingsButtons/fonts/font = ExtResource("1_551l1")
+SettingsButtons/styles/hover = SubResource("StyleBoxFlat_b4hw8")
+SettingsButtons/styles/normal = SubResource("StyleBoxFlat_alu7c")
+SettingsPanel/base_type = &"Panel"
+SettingsPanel/styles/panel = SubResource("StyleBoxFlat_2uh1n")
