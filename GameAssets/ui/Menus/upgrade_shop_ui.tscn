@@ -1,0 +1,500 @@
+[gd_scene format=3 uid="uid://diwuocc71hanf"]
+
+[ext_resource type="Script" uid="uid://dj4f8qsjpjgh1" path="res://GameAssets/ui/Menus/upgrade_shop_ui.gd" id="1_4vda5"]
+[ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_prae3"]
+[ext_resource type="Shader" uid="uid://djvfhf0wvqcyo" path="res://GameAssets/ui/Menus/ScreenEffect/crt_effect.gdshader" id="1_rr0rl"]
+[ext_resource type="LabelSettings" uid="uid://v1mt8f7cj5pl" path="res://Assets/Themes/section_theme.tres" id="2_gh3xm"]
+[ext_resource type="LabelSettings" uid="uid://x6aqe7gcgyxu" path="res://Assets/Themes/option_audio.tres" id="3_4vda5"]
+[ext_resource type="Texture2D" uid="uid://dbq3v7tysjeow" path="res://Assets/Images/batery_icon.png" id="4_xkhp7"]
+[ext_resource type="Texture2D" uid="uid://bq1m7vee72as2" path="res://Assets/Images/energy_icon.png" id="6_gfolf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_prae3"]
+shader = ExtResource("1_rr0rl")
+
+[sub_resource type="Animation" id="Animation_o2ioj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blink:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blink:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2t0m1"]
+resource_name = "off_effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 0.05), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blink:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blink:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_nu0li"]
+resource_name = "on_effect"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Blink:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.59999996),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Blink:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 0.05), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Fade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Blink:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Fade:mouse_filter")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7eik"]
+_data = {
+&"RESET": SubResource("Animation_o2ioj"),
+&"off_effect": SubResource("Animation_2t0m1"),
+&"on_effect": SubResource("Animation_nu0li")
+}
+
+[node name="UpgradeShop" type="Control" unique_id=920229811]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4vda5")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1759423235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03529412, 0.11764706, 0.03529412, 1)
+
+[node name="Sections" type="HBoxContainer" parent="." unique_id=73015270]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -554.0
+offset_top = -250.0
+offset_right = 554.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrades" type="VBoxContainer" parent="Sections" unique_id=491393452]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Sections/Upgrades" unique_id=1379745908]
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"TittleUpgradeShop"
+text = "Upgrades"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Sections/Upgrades" unique_id=1499506051]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BateryUpgrade" type="Panel" parent="Sections/Upgrades/VBoxContainer" unique_id=1801971292]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"CrtPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade" unique_id=1747389302]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer" unique_id=1087955284]
+layout_mode = 2
+
+[node name="Tittle" type="Label" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=331347469]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Batery"
+label_settings = ExtResource("2_gh3xm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=1306573820]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_xkhp7")
+stretch_mode = 5
+
+[node name="Description" type="Label" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=822928019]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Increases batery amount"
+label_settings = ExtResource("3_4vda5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyBatery" type="Button" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=238608402]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"SettingsButtons"
+text = "BUY"
+
+[node name="EnergyUpgrade" type="Panel" parent="Sections/Upgrades/VBoxContainer" unique_id=1092881202]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"CrtPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade" unique_id=30920703]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer" unique_id=956297525]
+layout_mode = 2
+
+[node name="Tittle" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=201080811]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Energy 
+Efficience"
+label_settings = ExtResource("2_gh3xm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=682664126]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("6_gfolf")
+
+[node name="Description" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=2029558223]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Increases energy generation"
+label_settings = ExtResource("3_4vda5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BuyEnergy" type="Button" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=567107767]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"SettingsButtons"
+text = "BUY"
+
+[node name="Status" type="VBoxContainer" parent="Sections" unique_id=126419732]
+layout_mode = 2
+
+[node name="EnergyStatus" type="Label" parent="Sections/Status" unique_id=162151273]
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"TittleUpgradeShop"
+text = "Energy status"
+horizontal_alignment = 1
+
+[node name="EnergyInfo" type="Panel" parent="Sections/Status" unique_id=982220451]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"CrtPanel"
+
+[node name="MarginContainer" type="MarginContainer" parent="Sections/Status/EnergyInfo" unique_id=558753781]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Sections/Status/EnergyInfo/MarginContainer" unique_id=2009836597]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="EPC" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1266718899]
+layout_mode = 2
+text = "Energy per click: 1"
+label_settings = ExtResource("3_4vda5")
+
+[node name="TotalBatery" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1991821471]
+layout_mode = 2
+text = "Total batery: 1"
+label_settings = ExtResource("3_4vda5")
+
+[node name="BateryCpacity" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1608461823]
+layout_mode = 2
+text = "Batery capacity: 100"
+label_settings = ExtResource("3_4vda5")
+
+[node name="HSeparator" type="HSeparator" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=380568243]
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"SettingSeparator"
+
+[node name="Consume" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1379060100]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Consume"
+label_settings = ExtResource("2_gh3xm")
+
+[node name="HSeparator2" type="HSeparator" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=63664676]
+layout_mode = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"SettingSeparator"
+
+[node name="CosumePressure" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=62049935]
+layout_mode = 2
+text = "Pressure system: 10"
+label_settings = ExtResource("3_4vda5")
+
+[node name="ConsumeTemperature" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=285319238]
+layout_mode = 2
+text = "Temperature system: 10"
+label_settings = ExtResource("3_4vda5")
+
+[node name="ConsumeLights" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1630929439]
+layout_mode = 2
+text = "Lights System: 10"
+label_settings = ExtResource("3_4vda5")
+
+[node name="ConsumeTotal" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1322363684]
+layout_mode = 2
+text = "Total cosume: 30"
+label_settings = ExtResource("3_4vda5")
+
+[node name="Exit" type="Button" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1806796479]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_prae3")
+theme_type_variation = &"SettingsButtons"
+text = "Exit"
+
+[node name="Fade" type="ColorRect" parent="." unique_id=1326081396]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Blink" type="ColorRect" parent="." unique_id=362136123]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="Control" type="ColorRect" parent="." unique_id=960902736]
+material = SubResource("ShaderMaterial_prae3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=769670142]
+libraries/ = SubResource("AnimationLibrary_l7eik")
+
+[connection signal="button_down" from="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer/BuyBatery" to="." method="_on_buy_batery_button_down"]
+[connection signal="button_down" from="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer/BuyEnergy" to="." method="_on_buy_energy_button_down"]
+[connection signal="button_down" from="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

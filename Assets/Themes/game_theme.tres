@@ -2,6 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_551l1"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_551l1"]
 bg_color = Color(0.2554662, 0.20957237, 0.31521925, 1)
 skew = Vector2(-0.3, 0)
@@ -20,6 +28,7 @@ expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_g4v7s"]
 color = Color(0.18431373, 0.4509804, 0.20392157, 1)
+thickness = 3
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4hw8"]
 bg_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
@@ -40,7 +49,17 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iduqd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+
 [resource]
+CrtPanel/base_type = &"Panel"
+CrtPanel/styles/panel = SubResource("StyleBoxFlat_g4v7s")
 MainMenuBtn/base_type = &"Button"
 MainMenuBtn/colors/font_color = Color(0.8980392, 0.80784315, 0.7058824, 1)
 MainMenuBtn/font_sizes/font_size = 50
@@ -58,3 +77,8 @@ SettingsButtons/styles/hover = SubResource("StyleBoxFlat_b4hw8")
 SettingsButtons/styles/normal = SubResource("StyleBoxFlat_alu7c")
 SettingsPanel/base_type = &"Panel"
 SettingsPanel/styles/panel = SubResource("StyleBoxFlat_2uh1n")
+TittleUpgradeShop/base_type = &"Label"
+TittleUpgradeShop/colors/font_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
+TittleUpgradeShop/font_sizes/font_size = 64
+TittleUpgradeShop/fonts/font = ExtResource("1_551l1")
+TittleUpgradeShop/styles/normal = SubResource("StyleBoxFlat_iduqd")
