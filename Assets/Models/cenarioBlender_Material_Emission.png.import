@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03se18mevmj6"
-path.s3tc="res://.godot/imported/cenario_3.png-63091c220dee9cab91b2feebcb6ef130.s3tc.ctex"
+uid="uid://cd151k0kocirm"
+path.s3tc="res://.godot/imported/cenarioBlender_Material_Emission.png-1041b26bab9d6d7dc7ec2a0fcdaa6bfd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Models/cenario_3.png"
-dest_files=["res://.godot/imported/cenario_3.png-63091c220dee9cab91b2feebcb6ef130.s3tc.ctex"]
+source_file="res://Assets/Models/cenarioBlender_Material_Emission.png"
+dest_files=["res://.godot/imported/cenarioBlender_Material_Emission.png-1041b26bab9d6d7dc7ec2a0fcdaa6bfd.s3tc.ctex"]
 
 [params]
 

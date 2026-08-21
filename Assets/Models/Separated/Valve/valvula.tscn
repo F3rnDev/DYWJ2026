@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bi7h2quy65yim"]
+
+[ext_resource type="PackedScene" uid="uid://uihwp6rd4tyl" path="res://Assets/Models/Separated/Valve/valvula.glb" id="1_1gx8u"]
+
+[node name="valvula" unique_id=1514814699 instance=ExtResource("1_1gx8u")]

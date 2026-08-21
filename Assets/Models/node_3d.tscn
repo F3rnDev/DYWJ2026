@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://dje1xlvxnnml"]
-
-[ext_resource type="PackedScene" uid="uid://c3ui4613h5a5c" path="res://cenario.glb" id="1_a202f"]
-
-[node name="Node3D" type="Node3D" unique_id=751181327]
-
-[node name="cenario" parent="." unique_id=541235601 instance=ExtResource("1_a202f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0600716, 1.1920929e-07, 0.24442649)

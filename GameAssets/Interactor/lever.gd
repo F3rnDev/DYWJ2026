@@ -4,14 +4,14 @@ class_name Lever
 
 var crosshair:Crosshair.Types = Crosshair.Types.READYTOHOLD
 
-@onready var pointAdd = preload("res://GameAssets/ui/pointAdd.tscn")
-
-@export var min_angle: float = -45.0
-@export var max_angle: float = 45.0
+@export var min_angle: float = -90.0
+@export var max_angle: float = 0.0
 @export var mouse_sensitivity: float = 0.5
 
 var dragging = false
 var mouseOffset = Vector2(0, 0)
+
+signal switch(on:bool)
 
 func playInteractor():
 	dragging = true
@@ -21,16 +21,20 @@ func resetInteractor():
 	
 	#UpdateRotation
 	var animateOn = true
-	if rotation_degrees.x < 0:
+	if rotation_degrees.x < -45.0:
 		animateOn = false
 	
 	animateLever(animateOn)
 
 func animateLever(on):
-	var mult = 1 if on else -1
+	var angleToAnimate = max_angle if on else min_angle
 	
 	var leverTween = create_tween()
-	leverTween.tween_property(self, "rotation_degrees:x", max_angle * mult, 0.2)
+	leverTween.tween_property(self, "rotation_degrees:x", angleToAnimate, 0.2)
+	
+	await leverTween.finished
+	
+	switch.emit(on)
 
 func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:

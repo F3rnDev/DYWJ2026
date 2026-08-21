@@ -31,6 +31,7 @@ func checkRaycast():
 	else:
 		if raycastedObject != null:
 			raycastedObject.resetInteractor()
+			raycastedObject.deactivateInteractor()
 		
 		raycastedObject = null
 	

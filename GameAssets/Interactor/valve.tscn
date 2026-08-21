@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bw06srlufi081"]
+
+[ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_4wjri"]
+[ext_resource type="Script" uid="uid://ca1avpllufvke" path="res://GameAssets/Interactor/valve.gd" id="2_oo7tb"]
+[ext_resource type="PackedScene" uid="uid://uihwp6rd4tyl" path="res://Assets/Models/Separated/Valve/valvula.glb" id="2_w86s8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_oo7tb"]
+radius = 0.3618201
+
+[node name="Valve" unique_id=2061101808 node_paths=PackedStringArray("objectMesh") instance=ExtResource("1_4wjri")]
+script = ExtResource("2_oo7tb")
+degreeAmnt = 1.0
+objectMesh = NodePath("valvula/valvula1_001")
+
+[node name="CollisionShape3D" parent="." index="0" unique_id=1542510122]
+shape = SubResource("SphereShape3D_oo7tb")
+
+[node name="valvula" parent="." index="1" unique_id=1514814699 instance=ExtResource("2_w86s8")]
+
+[editable path="valvula"]

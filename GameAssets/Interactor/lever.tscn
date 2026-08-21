@@ -2,15 +2,22 @@
 
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_kdk0h"]
 [ext_resource type="Script" uid="uid://bpqexn85iyatn" path="res://GameAssets/Interactor/lever.gd" id="2_01kfv"]
+[ext_resource type="PackedScene" uid="uid://bs7vpggnwdekt" path="res://Assets/Models/Separated/Lever/alavanca.glb" id="3_fbpgu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_01kfv"]
 radius = 0.2575043
 
-[node name="lever" unique_id=2061101808 instance=ExtResource("1_kdk0h")]
+[node name="lever" unique_id=2061101808 node_paths=PackedStringArray("objectMesh") instance=ExtResource("1_kdk0h")]
 script = ExtResource("2_01kfv")
-min_angle = -45.0
-max_angle = 45.0
+min_angle = -90.0
+max_angle = 0.0
 mouse_sensitivity = 0.5
+objectMesh = NodePath("alavanca2/alavanca")
 
-[node name="CollisionShape3D" parent="." index="1" unique_id=1542510122]
+[node name="CollisionShape3D" parent="." index="0" unique_id=1542510122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1539734, 0)
 shape = SubResource("SphereShape3D_01kfv")
+
+[node name="alavanca2" parent="." index="1" unique_id=482793457 instance=ExtResource("3_fbpgu")]
+
+[editable path="alavanca2"]
