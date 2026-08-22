@@ -27,23 +27,25 @@ func checkRaycast():
 	var collider = raycast.get_collider()
 	if raycast.is_colliding() and collider.is_in_group("Interactor"):
 		raycastedObject = collider
-		raycastedObject.activateInteractor()
+		raycastedObject.playFunction("activateInteractor")
 	else:
 		if raycastedObject != null:
-			raycastedObject.resetInteractor()
-			raycastedObject.deactivateInteractor()
+			raycastedObject.playFunction("resetInteractor")
+			raycastedObject.playFunction("deactivateInteractor")
 		
 		raycastedObject = null
 	
+	var activeObject = collider != null and "active" in collider and collider.active
+	
 	var renderCrosshair = Crosshair.Types.CROSSHAIR
-	if collider != null and "crosshair" in collider:
+	if activeObject and "crosshair" in collider:
 		renderCrosshair = collider.crosshair
 	
-	canStartInteract.emit(raycastedObject != null, renderCrosshair)
+	canStartInteract.emit(activeObject, renderCrosshair)
 
 func Interact():
 	if raycastedObject != null:
-		raycastedObject.playInteractor()
+		raycastedObject.playFunction("playInteractor")
 
 func _process(delta: float) -> void:
 	rotateCam(delta)
@@ -56,7 +58,8 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		Interact()
 	elif Input.is_action_just_released("Interact") and raycastedObject != null:
-		raycastedObject.resetInteractor()
+		raycastedObject.playFunction("resetInteractor")
+		raycastedObject.playFunction("stoppedClicking")
 	
 	#DEBUG
 	if Input.is_physical_key_pressed(KEY_0):

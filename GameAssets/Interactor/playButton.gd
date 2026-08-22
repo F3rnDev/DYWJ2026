@@ -7,14 +7,18 @@ var crosshair:Crosshair.Types = Crosshair.Types.READYTOCLICK
 @onready var pointAdd = preload("res://GameAssets/ui/pointAdd.tscn")
 @onready var anim = $buttonAnim
 
-signal addPoint(value:int)
+signal addPoint
+
+func _ready() -> void:
+	setActive(true)
 
 func playInteractor():
-	addPoint.emit(1)
-	
-	var instance = pointAdd.instantiate()
-	instance.create(1)
-	add_child(instance)
+	addPoint.emit()
 	
 	anim.stop()
 	anim.play("press")
+
+func instacePointAdd(curEff:float):
+	var instance = pointAdd.instantiate()
+	instance.create(curEff)
+	add_child(instance)

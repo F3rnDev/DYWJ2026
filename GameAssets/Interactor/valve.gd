@@ -8,10 +8,17 @@ var dragging = false
 
 @export var degreeAmnt = 1.0
 
+func _ready() -> void:
+	setActive(true)
+
 func playInteractor():
+	super.playInteractor()
+	
 	dragging = true
 
 func resetInteractor():
+	super.resetInteractor()
+	
 	dragging = false
 
 func _process(delta: float) -> void:

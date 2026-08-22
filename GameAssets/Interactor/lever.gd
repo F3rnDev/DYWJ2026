@@ -11,20 +11,28 @@ var crosshair:Crosshair.Types = Crosshair.Types.READYTOHOLD
 var dragging = false
 var mouseOffset = Vector2(0, 0)
 
-signal switch(on:bool)
+signal switchOn
 
 func playInteractor():
 	dragging = true
 
 func resetInteractor():
+	if !dragging:
+		return
+	
 	dragging = false
 	
 	#UpdateRotation
 	var animateOn = true
-	if rotation_degrees.x < -45.0:
+	if rotation_degrees.x < -25.0:
 		animateOn = false
 	
 	animateLever(animateOn)
+
+func moveLeverDown():
+	var leverTween = create_tween()
+	leverTween.tween_property(self, "rotation_degrees:x", min_angle, 0.2)
+	setActive(true)
 
 func animateLever(on):
 	var angleToAnimate = max_angle if on else min_angle
@@ -32,12 +40,19 @@ func animateLever(on):
 	var leverTween = create_tween()
 	leverTween.tween_property(self, "rotation_degrees:x", angleToAnimate, 0.2)
 	
+	if !on:
+		return
+	
 	await leverTween.finished
 	
-	switch.emit(on)
+	switchOn.emit()
+	setActive(false)
 
 func _input(event: InputEvent) -> void:
-	if dragging and event is InputEventMouseMotion:
+	if !dragging:
+		return
+	
+	if event is InputEventMouseMotion:
 		moveLever(event.relative)
 
 func moveLever(mouse_relative: Vector2) -> void:

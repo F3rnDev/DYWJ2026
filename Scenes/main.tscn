@@ -26,9 +26,6 @@ script = ExtResource("1_bo1nx")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=948463392]
 environment = SubResource("Environment_ig7tw")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=949655485]
-transform = Transform3D(1, 0, 0, 0, 0.6338336, 0.77346945, 0, -0.77346945, 0.6338336, 0, 6.716951, 5.247328)
-
 [node name="CharacterBody3D" parent="." unique_id=1790436916 instance=ExtResource("2_bo1nx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.3809543, -0.07167125, -0.2511325)
 
@@ -71,3 +68,4 @@ texture = SubResource("ViewportTexture_hptm8")
 
 [connection signal="canStartInteract" from="CharacterBody3D" to="." method="_on_character_body_3d_can_start_interact"]
 [connection signal="addPoint" from="Objects/Interactables/PlayButton" to="." method="_on_play_button_add_point"]
+[connection signal="switchOn" from="Objects/Interactables/lever" to="." method="_on_lever_switch_on"]
