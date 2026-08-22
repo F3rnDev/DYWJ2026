@@ -11,6 +11,60 @@ font_size = 80
 font_color = Color(0, 0, 0, 1)
 outline_size = 10
 
+[sub_resource type="Animation" id="Animation_bjrwl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeInOut:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wjbxw"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeInOut:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_swyl6"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeInOut:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ekhup"]
+_data = {
+&"RESET": SubResource("Animation_bjrwl"),
+&"fade_in": SubResource("Animation_wjbxw"),
+&"fade_out": SubResource("Animation_swyl6")
+}
+
 [node name="MainMenu" type="CanvasLayer" unique_id=81749948 node_paths=PackedStringArray("play", "settings", "quit", "settings_menu")]
 script = ExtResource("1_8gewe")
 play = NodePath("Play")
@@ -79,8 +133,21 @@ theme = ExtResource("1_m2x1y")
 theme_type_variation = &"MainMenuBtn"
 text = "Quit"
 
-[node name="SettingsMenu" parent="." unique_id=601259692 instance=ExtResource("4_bjrwl")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=430577682]
+libraries/ = SubResource("AnimationLibrary_ekhup")
+
+[node name="FadeInOut" type="ColorRect" parent="." unique_id=1127858464]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SettingsMenu" parent="." unique_id=601259692 node_paths=PackedStringArray("main_manu_animation") instance=ExtResource("4_bjrwl")]
 visible = false
+main_manu_animation = NodePath("../AnimationPlayer")
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
@@ -91,3 +158,4 @@ visible = false
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

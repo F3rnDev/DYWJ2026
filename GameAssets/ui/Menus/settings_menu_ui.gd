@@ -1,6 +1,7 @@
 extends Control
 
 @export var apply_btn: Button
+@export var main_manu_animation: AnimationPlayer
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
@@ -21,6 +22,10 @@ func _on_apply_button_down() -> void:
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "off_effect":
 		visible = false
+		main_manu_animation.play("fade_in")
+	
+	
+	
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
