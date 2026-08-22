@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x0pdfq8numxx"
-path.s3tc="res://.godot/imported/botao_Material_Metallic-Material_Roughness.png-64280c02d6b5a345d983982160c4534b.s3tc.ctex"
+uid="uid://cathqumfw6508"
+path.s3tc="res://.godot/imported/basebotao_Material_Normal.png-f75c8e5944a6cf719c800a53a416f07c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f9321854f46967dd56d8b1b0cd1d549e"
+"md5": "635ace8dd78c075b03bdfca42b052722"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Separated/Button/botao_Material_Metallic-Material_Roughness.png"
-dest_files=["res://.godot/imported/botao_Material_Metallic-Material_Roughness.png-64280c02d6b5a345d983982160c4534b.s3tc.ctex"]
+source_file="res://Assets/Models/Separated/Button/basebotao_Material_Normal.png"
+dest_files=["res://.godot/imported/basebotao_Material_Normal.png-f75c8e5944a6cf719c800a53a416f07c.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Assets/Models/Separated/Button/basebotao_Material_Normal.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

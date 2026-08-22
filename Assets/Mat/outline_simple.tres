@@ -1,8 +1,13 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://beg073p708vu2"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://beg073p708vu2"]
+
+[ext_resource type="Shader" uid="uid://qfwkh53fosl3" path="res://Assets/Mat/outline_simple.gdshader" id="1_nm1bn"]
 
 [resource]
-blend_mode = 4
-cull_mode = 1
-shading_mode = 0
-grow = true
-grow_amount = 0.01
+render_priority = 0
+shader = ExtResource("1_nm1bn")
+shader_parameter/outline_color = Color(1, 0.95, 1, 1)
+shader_parameter/thickness = 0.010000000475
+shader_parameter/outline_energy = 1.0
+shader_parameter/outline_transparency = 1.0
+shader_parameter/merge_group = false
+shader_parameter/merge_depth_range = 10.0

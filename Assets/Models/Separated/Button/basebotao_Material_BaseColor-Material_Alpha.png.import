@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x0pdfq8numxx"
-path.s3tc="res://.godot/imported/botao_Material_Metallic-Material_Roughness.png-64280c02d6b5a345d983982160c4534b.s3tc.ctex"
+uid="uid://du4qm82ms234t"
+path.s3tc="res://.godot/imported/basebotao_Material_BaseColor-Material_Alpha.png-28c53b707c3fb6ef388710eefb29559e.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f9321854f46967dd56d8b1b0cd1d549e"
+"md5": "2ca3848f0343919018c6cd4e4acaba15"
 }
 
 [deps]
 
-source_file="res://Assets/Models/Separated/Button/botao_Material_Metallic-Material_Roughness.png"
-dest_files=["res://.godot/imported/botao_Material_Metallic-Material_Roughness.png-64280c02d6b5a345d983982160c4534b.s3tc.ctex"]
+source_file="res://Assets/Models/Separated/Button/basebotao_Material_BaseColor-Material_Alpha.png"
+dest_files=["res://.godot/imported/basebotao_Material_BaseColor-Material_Alpha.png-28c53b707c3fb6ef388710eefb29559e.s3tc.ctex"]
 
 [params]
 

@@ -4,7 +4,7 @@ class_name Lever
 
 var crosshair:Crosshair.Types = Crosshair.Types.READYTOHOLD
 
-@export var min_angle: float = -90.0
+@export var min_angle: float = -145.0
 @export var max_angle: float = 0.0
 @export var mouse_sensitivity: float = 0.5
 

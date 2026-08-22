@@ -9,7 +9,7 @@ radius = 0.2575043
 
 [node name="lever" unique_id=2061101808 node_paths=PackedStringArray("objectMesh") instance=ExtResource("1_kdk0h")]
 script = ExtResource("2_01kfv")
-min_angle = -90.0
+min_angle = -145.0
 max_angle = 0.0
 mouse_sensitivity = 0.5
 objectMesh = NodePath("alavanca2/alavanca")

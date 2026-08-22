@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://baeq0eujga6gg"]
+
+[ext_resource type="Script" uid="uid://bh8ushffxtgfa" path="res://GameAssets/EnvironmentUI/batery_bar.gd" id="1_j3syc"]
+[ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_jpjct"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nm1bn"]
+viewport_path = NodePath("SubViewport")
+
+[node name="bateryBar" type="Sprite3D" unique_id=1287890219]
+transform = Transform3D(-1, 0, -8.742278e-08, -3.7568203e-08, 0.9029574, 0.42973015, 7.893904e-08, 0.42973015, -0.9029574, 0, 0, 0)
+texture = SubResource("ViewportTexture_nm1bn")
+script = ExtResource("1_j3syc")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=839146972]
+size = Vector2i(5, 30)
+
+[node name="ProgressBar" type="ProgressBar" parent="SubViewport" unique_id=1822208897]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jpjct")
+value = 20.0
+fill_mode = 3
+show_percentage = false

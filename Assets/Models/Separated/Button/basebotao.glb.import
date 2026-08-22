@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bul86emshtvv4"
-path="res://.godot/imported/botao.glb-7eff46921a1df048a6124713eaab3019.scn"
+uid="uid://dha1oj27scxuv"
+path="res://.godot/imported/basebotao.glb-ae45a59608c87d968b938be0e2bd99ae.scn"
 
 [deps]
 
-source_file="res://Assets/Models/Separated/Button/botao.glb"
-dest_files=["res://.godot/imported/botao.glb-7eff46921a1df048a6124713eaab3019.scn"]
+source_file="res://Assets/Models/Separated/Button/basebotao.glb"
+dest_files=["res://.godot/imported/basebotao.glb-ae45a59608c87d968b938be0e2bd99ae.scn"]
 
 [params]
 

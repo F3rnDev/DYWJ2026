@@ -2,19 +2,63 @@
 
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_84umq"]
 [ext_resource type="Script" uid="uid://dowsaj0jej423" path="res://GameAssets/Interactor/playButton.gd" id="2_xfin3"]
-[ext_resource type="PackedScene" uid="uid://dng6p7ysxrpp8" path="res://Assets/Models/Separated/Button/botao.glb" id="3_xfin3"]
+[ext_resource type="PackedScene" uid="uid://bul86emshtvv4" path="res://Assets/Models/Separated/Button/botao.glb" id="3_lqv2t"]
+[ext_resource type="PackedScene" uid="uid://dha1oj27scxuv" path="res://Assets/Models/Separated/Button/basebotao.glb" id="4_nj2cj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xfin3"]
 radius = 0.28128666
 
+[sub_resource type="Animation" id="Animation_nj2cj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("botao:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lqv2t"]
+resource_name = "press"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("botao:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(0.17677675, 2.1435473, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.03, 0.05), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nj2cj"]
+_data = {
+&"RESET": SubResource("Animation_nj2cj"),
+&"press": SubResource("Animation_lqv2t")
+}
+
 [node name="PlayButton" unique_id=2061101808 node_paths=PackedStringArray("objectMesh") groups=["PlayButton"] instance=ExtResource("1_84umq")]
 script = ExtResource("2_xfin3")
-objectMesh = NodePath("botao/botaoEnergia_002")
+objectMesh = NodePath("basebotao/botaoEnergia_002")
 
 [node name="CollisionShape3D" parent="." index="0" unique_id=1542510122]
 shape = SubResource("SphereShape3D_xfin3")
 
-[node name="botao" parent="." index="1" unique_id=1850682450 instance=ExtResource("3_xfin3")]
+[node name="botao" parent="." index="1" unique_id=1103624884 instance=ExtResource("3_lqv2t")]
 transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
 
-[editable path="botao"]
+[node name="basebotao" parent="." index="2" unique_id=229629715 instance=ExtResource("4_nj2cj")]
+transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49999997, 0, 0, 0)
+
+[node name="buttonAnim" type="AnimationPlayer" parent="." index="3" unique_id=1504896541]
+libraries/ = SubResource("AnimationLibrary_nj2cj")
+
+[editable path="basebotao"]

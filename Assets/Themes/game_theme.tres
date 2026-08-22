@@ -26,6 +26,12 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch8e7"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hvdbo"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_g4v7s"]
 color = Color(0.18431373, 0.4509804, 0.20392157, 1)
 thickness = 3
@@ -66,6 +72,8 @@ MainMenuBtn/font_sizes/font_size = 50
 MainMenuBtn/fonts/font = ExtResource("1_551l1")
 MainMenuBtn/styles/hover = SubResource("StyleBoxFlat_551l1")
 MainMenuBtn/styles/normal = SubResource("StyleBoxFlat_mt1l0")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_ch8e7")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_hvdbo")
 SettingSeparator/base_type = &"HSeparator"
 SettingSeparator/styles/separator = SubResource("StyleBoxLine_g4v7s")
 SettingsButtons/base_type = &"Button"
