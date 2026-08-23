@@ -19,9 +19,13 @@ func playInteractor():
 	pass
 
 func activateInteractor():
+	if objectMesh == null: return
+	
 	objectMesh.material_overlay = outlineMat
 
 func deactivateInteractor():
+	if objectMesh == null: return
+	
 	objectMesh.material_overlay = null
 
 func stoppedClicking():

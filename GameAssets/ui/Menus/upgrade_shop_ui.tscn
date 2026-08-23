@@ -7,6 +7,14 @@
 [ext_resource type="LabelSettings" uid="uid://x6aqe7gcgyxu" path="res://Assets/Themes/option_audio.tres" id="3_4vda5"]
 [ext_resource type="Texture2D" uid="uid://dbq3v7tysjeow" path="res://Assets/Images/batery_icon.png" id="4_xkhp7"]
 [ext_resource type="Texture2D" uid="uid://bq1m7vee72as2" path="res://Assets/Images/energy_icon.png" id="6_gfolf"]
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="7_gfolf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b5482"]
+font = ExtResource("7_gfolf")
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+outline_size = 5
+outline_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_prae3"]
 shader = ExtResource("1_rr0rl")
@@ -73,6 +81,54 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sections:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_2t0m1"]
 resource_name = "off_effect"
@@ -135,6 +191,54 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sections:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_nu0li"]
@@ -277,7 +381,8 @@ layout_mode = 2
 [node name="Tittle" type="Label" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=331347469]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Batery"
+text = "Battery
+(0/4)"
 label_settings = ExtResource("2_gh3xm")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -290,10 +395,18 @@ size_flags_vertical = 4
 texture = ExtResource("4_xkhp7")
 stretch_mode = 5
 
+[node name="Cost" type="Label" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=724055465]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Cost: 20en"
+label_settings = ExtResource("3_4vda5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Description" type="Label" parent="Sections/Upgrades/VBoxContainer/BateryUpgrade/MarginContainer/VBoxContainer" unique_id=822928019]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Increases batery amount"
+text = "Increases battery amount"
 label_settings = ExtResource("3_4vda5")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -333,8 +446,8 @@ layout_mode = 2
 [node name="Tittle" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=201080811]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Energy 
-Efficience"
+text = "Energy Gen.
+(0/24)"
 label_settings = ExtResource("2_gh3xm")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -346,13 +459,23 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("6_gfolf")
 
-[node name="Description" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=2029558223]
+[node name="Cost" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=1501286179]
 layout_mode = 2
 size_flags_vertical = 3
-text = "Increases energy generation"
+text = "Cost: 20en"
 label_settings = ExtResource("3_4vda5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=2029558223]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Increases energy generation per clicks"
+label_settings = ExtResource("3_4vda5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="BuyEnergy" type="Button" parent="Sections/Upgrades/VBoxContainer/EnergyUpgrade/MarginContainer/VBoxContainer" unique_id=567107767]
 unique_name_in_owner = true
@@ -400,6 +523,11 @@ layout_mode = 2
 theme_override_constants/separation = 15
 alignment = 1
 
+[node name="Current" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=959102828]
+layout_mode = 2
+text = "Current Energy: 20en"
+label_settings = SubResource("LabelSettings_b5482")
+
 [node name="EPC" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1266718899]
 layout_mode = 2
 text = "Energy per click: 1"
@@ -420,10 +548,10 @@ layout_mode = 2
 theme = ExtResource("1_prae3")
 theme_type_variation = &"SettingSeparator"
 
-[node name="Consume" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1379060100]
+[node name="CoreStatus" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1379060100]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Consume"
+text = "Core Status"
 label_settings = ExtResource("2_gh3xm")
 
 [node name="HSeparator2" type="HSeparator" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=63664676]
@@ -431,24 +559,19 @@ layout_mode = 2
 theme = ExtResource("1_prae3")
 theme_type_variation = &"SettingSeparator"
 
+[node name="ConsumeCore" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1322363684]
+layout_mode = 2
+text = "Core stability: 30%"
+label_settings = SubResource("LabelSettings_b5482")
+
 [node name="CosumePressure" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=62049935]
 layout_mode = 2
-text = "Pressure system: 10"
+text = "Pressure system: 10%"
 label_settings = ExtResource("3_4vda5")
 
 [node name="ConsumeTemperature" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=285319238]
 layout_mode = 2
-text = "Temperature system: 10"
-label_settings = ExtResource("3_4vda5")
-
-[node name="ConsumeLights" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1630929439]
-layout_mode = 2
-text = "Lights System: 10"
-label_settings = ExtResource("3_4vda5")
-
-[node name="ConsumeTotal" type="Label" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1322363684]
-layout_mode = 2
-text = "Total cosume: 30"
+text = "Temperature system: 10%"
 label_settings = ExtResource("3_4vda5")
 
 [node name="Exit" type="Button" parent="Sections/Status/EnergyInfo/MarginContainer/VBoxContainer" unique_id=1806796479]

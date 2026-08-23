@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0torjcfbe6j0"]
+
+[ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_8gpe1"]
+[ext_resource type="Script" uid="uid://cyo4pr4t8oclr" path="res://GameAssets/Interactor/store.gd" id="2_f3a27"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_bhunq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8gpe1"]
+
+[node name="Store" unique_id=2061101808 instance=ExtResource("1_8gpe1")]
+script = ExtResource("2_f3a27")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="0" unique_id=1162524571]
+visible = false
+mesh = SubResource("SphereMesh_bhunq")
+
+[node name="CollisionShape3D" parent="." index="1" unique_id=1542510122]
+shape = SubResource("SphereShape3D_8gpe1")

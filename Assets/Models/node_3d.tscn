@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dyo2msq6avst0" path="res://Assets/Models/cenarioBlender.glb" id="1_a202f"]
 [ext_resource type="Script" uid="uid://cy8nx6fatt2tr" path="res://Assets/Models/cenario.gd" id="1_ch8e7"]
-[ext_resource type="PackedScene" uid="uid://bul86emshtvv4" path="res://Assets/Models/Separated/Button/botao.glb" id="3_jka67"]
 
 [sub_resource type="Environment" id="Environment_ch8e7"]
 background_mode = 1
@@ -16,9 +15,6 @@ environment = SubResource("Environment_ch8e7")
 
 [node name="cenarioBlender" parent="." unique_id=523723109 instance=ExtResource("1_a202f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9501114, -9.536743e-07, -0.73913383)
-
-[node name="botao2" parent="." unique_id=1781615554 instance=ExtResource("3_jka67")]
-transform = Transform3D(1.8389955e-13, -0.013947943, -0.5698293, -0.57, -2.4915492e-08, 6.096826e-10, -2.4922949e-08, 0.5698293, -0.013947943, -3.0797791, 0.46772265, -3.291068)
 
 [node name="SpotLight3D8" type="SpotLight3D" parent="." unique_id=1903583365]
 transform = Transform3D(0.30901697, -0.3501073, -0.88427, 0, -0.9297765, 0.3681246, -0.95105654, -0.113756746, -0.28731674, -4.0677056, 1.1886404, -1.7751341)

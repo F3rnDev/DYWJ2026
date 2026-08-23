@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 var SPEED = 5.0
 
+var isActive = true
+
 #Camera Logic
 var lookDir:Vector2
 @onready var camera = $Camera3D
@@ -48,11 +50,15 @@ func Interact():
 		raycastedObject.playFunction("playInteractor")
 
 func _process(delta: float) -> void:
+	if !isActive: return
+	
 	rotateCam(delta)
 	
 	checkRaycast()
 
 func _input(event: InputEvent) -> void:
+	if !isActive: return
+	
 	if event is InputEventMouseMotion: lookDir = event.relative * 0.01
 	
 	if Input.is_action_just_pressed("Interact"):
@@ -66,6 +72,8 @@ func _input(event: InputEvent) -> void:
 		camera._camera_shake(0.5, 2.0)
 
 func _physics_process(delta: float) -> void:
+	if !isActive: return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

@@ -8,18 +8,20 @@ var dragging = false
 
 @export var degreeAmnt = 1.0
 
-func _ready() -> void:
-	setActive(true)
+signal startedDrag(valve:Valve)
+signal endedDrag(valve:Valve)
 
 func playInteractor():
 	super.playInteractor()
 	
 	dragging = true
+	startedDrag.emit(self)
 
 func resetInteractor():
 	super.resetInteractor()
 	
 	dragging = false
+	endedDrag.emit(self)
 
 func _process(delta: float) -> void:
 	if dragging:
