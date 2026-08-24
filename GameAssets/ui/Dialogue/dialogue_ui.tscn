@@ -45,7 +45,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Canvas" type="CanvasLayer" parent="." unique_id=2502601]
-visible = false
 
 [node name="Background" type="ColorRect" parent="Canvas" unique_id=244026571]
 anchors_preset = 15
@@ -75,16 +74,6 @@ theme_override_font_sizes/normal_font_size = 20
 text = "Texto muito divertido para teste"
 visible_characters = 0
 visible_ratio = 0.0
-
-[node name="Continue" type="Button" parent="Canvas" unique_id=750762892]
-offset_left = 1028.0
-offset_top = 596.0
-offset_right = 1142.0
-offset_bottom = 638.0
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 24
-text = "Continue"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Canvas" unique_id=867984109]
 libraries/ = SubResource("AnimationLibrary_brlbp")

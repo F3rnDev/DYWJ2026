@@ -7,14 +7,11 @@ extends Node3D
 @onready var player: CharacterBody3D = get_tree().current_scene.get_node("CharacterBody3D")
 @export var speaker: Node3D
 
-@export var dialogues: Array[String]
+@export_multiline() var dialogues: Array[String]
 
 
 var current_dialogue = -1
 var started = false
-
-func _ready() -> void:
-	dialogue_ui.get_node("Continue").connect("pressed", Callable(self, "continue_dialogue"))
 
 func start_dialogue(body):
 	if body == player and !started:
