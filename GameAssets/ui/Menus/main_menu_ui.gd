@@ -12,6 +12,7 @@ func _ready() -> void:
 	if OS.get_name() == "Web":
 		quit.queue_free()
 	settings_menu.visible = false
+	animation_player.play("core")
 	
 
 func _on_play_mouse_entered() -> void:
@@ -40,7 +41,6 @@ func _on_quit_mouse_exited() -> void:
 
 func _on_settings_button_down() -> void:
 	settings_menu.visible = true
-	settings_menu.animation_player.play("on_effect")
 
 func _on_quit_button_down() -> void:
 	get_tree().quit()

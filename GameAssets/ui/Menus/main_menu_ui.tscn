@@ -3,13 +3,17 @@
 [ext_resource type="Script" uid="uid://d132tqxqmk1d2" path="res://GameAssets/ui/Menus/main_menu_ui.gd" id="1_8gewe"]
 [ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_a8ita"]
 [ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_m2x1y"]
+[ext_resource type="Texture2D" uid="uid://baip7h5ojou64" path="res://Assets/Images/Tittle Menu.png" id="2_wjbxw"]
+[ext_resource type="Texture2D" uid="uid://b7fc2m470cgsb" path="res://Assets/Images/core.png" id="3_ekhup"]
 [ext_resource type="PackedScene" uid="uid://cfu4jqwlha7tr" path="res://GameAssets/ui/Menus/settings_menu_ui.tscn" id="4_bjrwl"]
+[ext_resource type="Shader" uid="uid://djvfhf0wvqcyo" path="res://GameAssets/ui/Menus/ScreenEffect/crt_effect.gdshader" id="6_swyl6"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_g4v7s"]
+[sub_resource type="LabelSettings" id="LabelSettings_551l1"]
 font = ExtResource("1_a8ita")
 font_size = 80
-font_color = Color(0, 0, 0, 1)
+font_color = Color(1, 1, 1, 0)
 outline_size = 10
+outline_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 
 [sub_resource type="Animation" id="Animation_bjrwl"]
 length = 0.001
@@ -24,6 +28,35 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Core:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ekhup"]
+resource_name = "core"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Core:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 158), Vector2(0, -57)]
 }
 
 [sub_resource type="Animation" id="Animation_wjbxw"]
@@ -61,9 +94,13 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ekhup"]
 _data = {
 &"RESET": SubResource("Animation_bjrwl"),
+&"core": SubResource("Animation_ekhup"),
 &"fade_in": SubResource("Animation_wjbxw"),
 &"fade_out": SubResource("Animation_swyl6")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ekhup"]
+shader = ExtResource("6_swyl6")
 
 [node name="MainMenu" type="CanvasLayer" unique_id=81749948 node_paths=PackedStringArray("play", "settings", "quit", "settings_menu")]
 script = ExtResource("1_8gewe")
@@ -72,6 +109,22 @@ settings = NodePath("Settings")
 quit = NodePath("Quit")
 settings_menu = NodePath("SettingsMenu")
 tween_trans = 10
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=529352890]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wjbxw")
+
+[node name="Core" type="TextureRect" parent="." unique_id=4612222]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ekhup")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1546539708]
 anchors_preset = 4
@@ -92,7 +145,9 @@ rotation = -0.17453292
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 100
 text = "Unstable core"
-label_settings = SubResource("LabelSettings_g4v7s")
+label_settings = SubResource("LabelSettings_551l1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="Button" parent="." unique_id=817928769]
 custom_minimum_size = Vector2(300, 0)
@@ -145,9 +200,17 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="SettingsMenu" parent="." unique_id=601259692 node_paths=PackedStringArray("main_manu_animation") instance=ExtResource("4_bjrwl")]
+[node name="SettingsMenu" parent="." unique_id=601259692 instance=ExtResource("4_bjrwl")]
 visible = false
-main_manu_animation = NodePath("../AnimationPlayer")
+
+[node name="Control" type="ColorRect" parent="." unique_id=1485422082]
+material = SubResource("ShaderMaterial_ekhup")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]

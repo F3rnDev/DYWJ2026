@@ -11,19 +11,20 @@ border_width_bottom = 5
 border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_551l1"]
-bg_color = Color(0.2554662, 0.20957237, 0.31521925, 1)
+bg_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
 skew = Vector2(-0.3, 0)
-expand_margin_left = 10.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 expand_margin_top = 10.0
-expand_margin_right = 50.0
 expand_margin_bottom = 10.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mt1l0"]
-bg_color = Color(0.20784314, 0.16862746, 0.25882354, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a20rg"]
+bg_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 skew = Vector2(-0.3, 0)
-expand_margin_left = 10.0
 expand_margin_top = 10.0
-expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ch8e7"]
@@ -67,11 +68,12 @@ border_color = Color(0.41960785, 0.9490196, 0.45490196, 1)
 CrtPanel/base_type = &"Panel"
 CrtPanel/styles/panel = SubResource("StyleBoxFlat_g4v7s")
 MainMenuBtn/base_type = &"Button"
-MainMenuBtn/colors/font_color = Color(0.8980392, 0.80784315, 0.7058824, 1)
+MainMenuBtn/colors/font_color = Color(0.050980393, 0.14901961, 0.047058824, 1)
+MainMenuBtn/colors/font_hover_color = Color(0.18431373, 0.4509804, 0.20392157, 1)
 MainMenuBtn/font_sizes/font_size = 50
 MainMenuBtn/fonts/font = ExtResource("1_551l1")
 MainMenuBtn/styles/hover = SubResource("StyleBoxFlat_551l1")
-MainMenuBtn/styles/normal = SubResource("StyleBoxFlat_mt1l0")
+MainMenuBtn/styles/normal = SubResource("StyleBoxFlat_a20rg")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_ch8e7")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_hvdbo")
 SettingSeparator/base_type = &"HSeparator"
