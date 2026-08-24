@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4kvq0x0whlrm"
-path.s3tc="res://.godot/imported/cenarioBlender_Material_BaseColor-Material_Alpha.png-076e98fa781954fc3fd91357f3a0138b.s3tc.ctex"
+uid="uid://bbklowkrq0c64"
+path.s3tc="res://.godot/imported/luzVermelha (1)_Material_BaseColor.png-Material_Alpha.png-ec60fe9411ffcd6d9acb8665ccf57aa7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "2ca3848f0343919018c6cd4e4acaba15"
+"md5": "f7f44ae5b5d5a5733a37675e4bc26747"
 }
 
 [deps]
 
-source_file="res://Assets/Models/cenarioBlender_Material_BaseColor-Material_Alpha.png"
-dest_files=["res://.godot/imported/cenarioBlender_Material_BaseColor-Material_Alpha.png-076e98fa781954fc3fd91357f3a0138b.s3tc.ctex"]
+source_file="res://Assets/Models/Separated/Misc/luzVermelha (1)_Material_BaseColor.png-Material_Alpha.png"
+dest_files=["res://.godot/imported/luzVermelha (1)_Material_BaseColor.png-Material_Alpha.png-ec60fe9411ffcd6d9acb8665ccf57aa7.s3tc.ctex"]
 
 [params]
 

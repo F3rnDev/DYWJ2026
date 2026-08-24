@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_kdk0h"]
 [ext_resource type="Script" uid="uid://bpqexn85iyatn" path="res://GameAssets/Interactor/lever.gd" id="2_01kfv"]
 [ext_resource type="PackedScene" uid="uid://bs7vpggnwdekt" path="res://Assets/Models/Separated/Lever/alavanca.glb" id="3_fbpgu"]
+[ext_resource type="AudioStream" uid="uid://7hcc77d0uns3" path="res://Assets/Sounds/Lever.wav" id="4_pth8r"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_01kfv"]
 radius = 0.2575043
@@ -19,5 +20,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1539734, 0)
 shape = SubResource("SphereShape3D_01kfv")
 
 [node name="alavanca2" parent="." index="1" unique_id=482793457 instance=ExtResource("3_fbpgu")]
+
+[node name="Click" type="AudioStreamPlayer3D" parent="." index="2" unique_id=603548761]
+stream = ExtResource("4_pth8r")
+volume_db = -20.0
+max_polyphony = 4
+bus = &"SFX"
 
 [editable path="alavanca2"]

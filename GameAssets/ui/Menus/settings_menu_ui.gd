@@ -15,6 +15,7 @@ extends Control
 
 func _on_apply_button_down() -> void:
 	visible = false
+	$Audio/ClickMenu.play()
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -39,3 +40,6 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 	
 	var audio = AudioServer.get_bus_index("SFX")
 	AudioServer.set_bus_volume_db(audio, linear_to_db(value))
+
+func _on_apply_mouse_entered() -> void:
+	$Audio/HoverMenu.play()

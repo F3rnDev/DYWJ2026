@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d0nu4byirds8e"]
+
+[ext_resource type="PackedScene" uid="uid://slc32vlgosba" path="res://Scenes/main.tscn" id="1_ka2pi"]
+[ext_resource type="Script" uid="uid://ceqxgip84avvj" path="res://Scenes/dialogue_controller.gd" id="2_feyax"]
+
+[node name="Node3D" unique_id=955176121 instance=ExtResource("1_ka2pi")]
+tutorial = true
+baseEnergyMaxAmount = 10.0
+baseEnergyEfficiency = 1.0
+upgradeEffLevel = 0
+upgradeEffLevelLimit = 20
+extraBatteries = 0
+extraBatteriesLimit = 4
+extraBetteriesMult = 3.0
+tempIncrease = 50.0
+coreUnsRate = 5.0
+tempNormalRate = 8.0
+pressNormalRate = 5.0
+energyDropRate = 1.0
+energyIncreaseDropRate = 2.0
+chanceToOutage = 0.2
+
+[node name="DialogueUI" parent="UI" parent_id_path=PackedInt32Array(1776955269) index="2" unique_id=1982816093]
+visible = true
+
+[node name="DialogueController" type="Node" parent="." index="8" unique_id=1212001537 node_paths=PackedStringArray("game", "dialogueTrigger", "playButton")]
+script = ExtResource("2_feyax")
+game = NodePath("..")
+dialogueTrigger = NodePath("../Objects/DialogueTrigger")
+playButton = NodePath("../Objects/Interactables/PlayButton")

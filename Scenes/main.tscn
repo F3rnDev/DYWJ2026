@@ -5,22 +5,114 @@
 [ext_resource type="PackedScene" uid="uid://bb8gge0trvrvk" path="res://GameAssets/ui/ui.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cwdunn8mflrwe" path="res://GameAssets/Interactor/playButton.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dwm38khy61aj5" path="res://GameAssets/ui/Dialogue/dialogue_trigger.tscn" id="5_21xkr"]
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="5_wsu2k"]
 [ext_resource type="PackedScene" uid="uid://q76nfy7djljs" path="res://GameAssets/ui/Dialogue/dialogue_ui.tscn" id="6_6bp64"]
 [ext_resource type="PackedScene" uid="uid://moebvbwkhawx" path="res://GameAssets/Interactor/lever.tscn" id="6_344ge"]
 [ext_resource type="PackedScene" uid="uid://bw06srlufi081" path="res://GameAssets/Interactor/valve.tscn" id="7_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://dje1xlvxnnml" path="res://Assets/Models/node_3d.tscn" id="8_344ge"]
 [ext_resource type="PackedScene" uid="uid://cjtmhocyfh2ux" path="res://GameAssets/Interactor/temperature_btn.tscn" id="8_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://d0torjcfbe6j0" path="res://GameAssets/Interactor/store.tscn" id="9_6iyac"]
-[ext_resource type="PackedScene" uid="uid://baeq0eujga6gg" path="res://GameAssets/EnvironmentUI/batery_bar.tscn" id="9_hptm8"]
+[ext_resource type="PackedScene" uid="uid://dpa6edrwd015j" path="res://Assets/Models/new_node_3d.tscn" id="12_6iyac"]
+[ext_resource type="PackedScene" uid="uid://c4c5xjnu5enki" path="res://Assets/Models/Separated/Batery/battery.tscn" id="12_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://p85a58plaqef" path="res://Assets/Models/Separated/Pointer/ponteiro.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://brjqdygu35cjy" path="res://Assets/Models/Separated/Core/nucleo.tscn" id="14_jkdf5"]
+[ext_resource type="AudioStream" uid="uid://cg3vte738dbif" path="res://Assets/Sounds/Background.wav" id="16_k12tt"]
+[ext_resource type="AudioStream" uid="uid://pk12drbs8c1a" path="res://Assets/Sounds/Explosion.wav" id="17_h1bgf"]
+[ext_resource type="AudioStream" uid="uid://bv21f22qmtpem" path="res://Assets/Sounds/Alarm.wav" id="17_hibaj"]
+[ext_resource type="AudioStream" uid="uid://42eojug84fvo" path="res://Assets/Sounds/PowerOff.wav" id="18_b3802"]
+[ext_resource type="AudioStream" uid="uid://bw5rcijoblo8d" path="res://Assets/Sounds/PowerOn.wav" id="19_fevyy"]
 
 [sub_resource type="Environment" id="Environment_ig7tw"]
 background_mode = 1
 background_color = Color(0.22819898, 0.08893133, 0.096691675, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+[sub_resource type="Animation" id="Animation_h1bgf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6iyac"]
-viewport_path = NodePath("SubViewport")
+[sub_resource type="Animation" id="Animation_wsu2k"]
+resource_name = "start"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k12tt"]
+_data = {
+&"RESET": SubResource("Animation_h1bgf"),
+&"start": SubResource("Animation_wsu2k")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkdf5"]
+font = ExtResource("5_wsu2k")
+font_size = 52
 
 [node name="Node3D" type="Node3D" unique_id=955176121]
 script = ExtResource("1_bo1nx")
@@ -35,6 +127,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2.38
 [node name="UI" parent="." unique_id=1776955269 instance=ExtResource("3_8gbba")]
 
 [node name="DialogueUI" parent="UI" unique_id=1982816093 instance=ExtResource("6_6bp64")]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="UI" unique_id=583058923]
 modulate = Color(1, 1, 1, 0)
@@ -45,22 +138,61 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 0.39215687)
 
-[node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1907105179]
-offset_right = 336.0
-offset_bottom = 27.0
-show_percentage = false
+[node name="GameOverRect" type="ColorRect" parent="UI" unique_id=824126644]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
-[node name="ProgressBar2" type="ProgressBar" parent="UI" unique_id=2019543768]
-offset_top = 41.88
-offset_right = 336.0
-offset_bottom = 68.88002
-show_percentage = false
+[node name="Intro" type="Control" parent="UI" unique_id=378393003]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ProgressBar3" type="ProgressBar" parent="UI" unique_id=581229976]
-offset_top = 86.72
-offset_right = 336.0
-offset_bottom = 113.72002
-show_percentage = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/Intro" unique_id=661759802]
+libraries/ = SubResource("AnimationLibrary_k12tt")
+
+[node name="ColorRect" type="ColorRect" parent="UI/Intro" unique_id=1185464948]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="UI/Intro" unique_id=160018143]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -11.5
+offset_right = 74.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Find the singularity"
+label_settings = SubResource("LabelSettings_jkdf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="winGame" type="ColorRect" parent="UI" unique_id=596932602]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Objects" type="Node3D" parent="." unique_id=1540256209]
 
@@ -85,23 +217,85 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.08, 0.468, -3.291)
 [node name="Store" parent="Objects/Interactables" unique_id=159032412 instance=ExtResource("9_6iyac")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -4.378352, 0.5282631, -0.7904002)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Objects" unique_id=528784026]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 4.95859, 1.788912, -14.3611145)
-mesh = SubResource("BoxMesh_g4v7s")
+[node name="DialogueTrigger" parent="Objects" unique_id=1049267570 instance=ExtResource("5_21xkr")]
+transform = Transform3D(3.8450003, 0, 0, 0, 3.8450003, 0, 0, 0, 3.8450003, 5.055896, 0.83998245, -14.074267)
 
-[node name="DialogueTrigger" parent="Objects/MeshInstance3D" unique_id=1049267570 node_paths=PackedStringArray("speaker") instance=ExtResource("5_21xkr")]
-transform = Transform3D(3.8450005, 0, 0, 0, 3.8450005, 0, 0, 0, 3.8450005, 0.097305775, -0.94892967, 0.2868476)
-speaker = NodePath("..")
+[node name="cenarioBlender" parent="Objects" unique_id=751181327 instance=ExtResource("12_6iyac")]
 
-[node name="UI" type="Node3D" parent="Objects" unique_id=2110716909]
+[node name="batteries" type="Node3D" parent="Objects" unique_id=2090295806]
 
-[node name="bateryBar" parent="Objects/UI" unique_id=1287890219 instance=ExtResource("9_hptm8")]
-transform = Transform3D(-1, 2.3281721e-08, -1.3634278e-07, -3.7568203e-08, 0.9029574, 0.42973015, 1.3311657e-07, 0.42973015, -0.9029574, 3.8364315, -0.11905562, 5.595097)
-texture = SubResource("ViewportTexture_6iyac")
+[node name="main" parent="Objects/batteries" unique_id=1125441163 instance=ExtResource("12_fdnlq")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 3.845, -0.234, 5.832)
 
-[node name="cenarioBlender" parent="." unique_id=668261402 instance=ExtResource("8_344ge")]
+[node name="upg1" parent="Objects/batteries" unique_id=1172211475 instance=ExtResource("12_fdnlq")]
+transform = Transform3D(0.55, 0, 0, 0, 0.476314, -0.27499998, 0, 0.27499998, 0.476314, 2.045195, 0.05186425, 5.8908596)
+
+[node name="upg2" parent="Objects/batteries" unique_id=369915100 instance=ExtResource("12_fdnlq")]
+transform = Transform3D(0.55, 0, 0, 0, 0.476314, -0.27499998, 0, 0.27499998, 0.476314, 1.8146516, 0.05186425, 5.8908596)
+
+[node name="upg3" parent="Objects/batteries" unique_id=79025124 instance=ExtResource("12_fdnlq")]
+transform = Transform3D(0.55, 0, 0, 0, 0.476314, -0.27499998, 0, 0.27499998, 0.476314, 2.0268972, -0.38132077, 5.688727)
+
+[node name="upg4" parent="Objects/batteries" unique_id=159378235 instance=ExtResource("12_fdnlq")]
+transform = Transform3D(0.55, 0, 0, 0, 0.476314, -0.27499998, 0, 0.27499998, 0.476314, 1.8209009, -0.38132077, 5.688727)
+
+[node name="PONTEIRO" parent="Objects" unique_id=1499691463 instance=ExtResource("13_fdnlq")]
+transform = Transform3D(-4.371139e-08, -1, 0, 0.8862036, -3.8737188e-08, -0.46329606, 0.46329606, -2.0251314e-08, 0.8862036, 2.923, -0.531, 5.524)
+
+[node name="PONTEIRO2" parent="Objects" unique_id=265273505 instance=ExtResource("13_fdnlq")]
+transform = Transform3D(-4.371139e-08, -1, 0, 0.8862036, -3.8737188e-08, -0.46329606, 0.46329606, -2.0251314e-08, 0.8862036, -2.0824945, 0.36429554, -3.3042047)
+minRot = 90.0
+maxRot = -90.0
+
+[node name="Nucleo" parent="Objects" unique_id=253040526 instance=ExtResource("14_jkdf5")]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0.716, 0.382, 0.488)
+
+[node name="MinInstabilityIncrease" type="Timer" parent="." unique_id=106229522]
+wait_time = 100.0
+one_shot = true
+
+[node name="OutageTimer" type="Timer" parent="." unique_id=2141329891]
+wait_time = 10.0
+one_shot = true
+
+[node name="gameOverDelay" type="Timer" parent="." unique_id=1170749484]
+wait_time = 3.0
+one_shot = true
+
+[node name="Audio" type="Node" parent="." unique_id=394955186]
+
+[node name="Ambient" type="AudioStreamPlayer3D" parent="Audio" unique_id=2145818583]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6980209, 0.37003526, 0.6567676)
+stream = ExtResource("16_k12tt")
+volume_db = -30.0
+autoplay = true
+bus = &"SFX"
+
+[node name="Alarm" type="AudioStreamPlayer3D" parent="Audio" unique_id=2137433528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.51243496, 1.8987519, 5.720761)
+stream = ExtResource("17_hibaj")
+volume_db = -12.0
+pitch_scale = 1.3
+bus = &"SFX"
+
+[node name="Explosion" type="AudioStreamPlayer3D" parent="Audio" unique_id=783831367]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6980209, 0.37003526, 0.6567676)
+stream = ExtResource("17_h1bgf")
+volume_db = -15.0
+bus = &"SFX"
+
+[node name="PowerOff" type="AudioStreamPlayer" parent="Audio" unique_id=2084841695]
+stream = ExtResource("18_b3802")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="PowerOn" type="AudioStreamPlayer" parent="Audio" unique_id=1981164913]
+stream = ExtResource("19_fevyy")
+volume_db = -15.0
+bus = &"SFX"
 
 [connection signal="canStartInteract" from="CharacterBody3D" to="." method="_on_character_body_3d_can_start_interact"]
+[connection signal="animation_finished" from="UI/Intro/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="addPoint" from="Objects/Interactables/PlayButton" to="." method="_on_play_button_add_point"]
 [connection signal="switchOn" from="Objects/Interactables/lever" to="." method="_on_lever_switch_on"]
 [connection signal="endedDrag" from="Objects/Interactables/Valve" to="." method="_on_valve_ended_drag"]
@@ -110,3 +304,7 @@ texture = SubResource("ViewportTexture_6iyac")
 [connection signal="startedDrag" from="Objects/Interactables/Valve2" to="." method="_on_valve_started_drag"]
 [connection signal="gotTemp" from="Objects/Interactables/temperatureBtn" to="." method="_on_temperature_btn_got_temp"]
 [connection signal="openStore" from="Objects/Interactables/Store" to="." method="_on_store_open_store"]
+[connection signal="timeout" from="MinInstabilityIncrease" to="." method="_on_min_instability_increase_timeout"]
+[connection signal="timeout" from="OutageTimer" to="." method="_on_outage_timer_timeout"]
+[connection signal="timeout" from="gameOverDelay" to="." method="_on_game_over_delay_timeout"]
+[connection signal="finished" from="Audio/Explosion" to="." method="_on_explosion_finished"]

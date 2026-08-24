@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://d0nu4byirds8e"]
+
+[ext_resource type="PackedScene" uid="uid://slc32vlgosba" path="res://Scenes/main.tscn" id="1_ka2pi"]
+[ext_resource type="Script" uid="uid://ceqxgip84avvj" path="res://Scenes/dialogue_controller.gd" id="2_feyax"]
+
+[sub_resource type="Animation" id="Animation_omtrn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_feyax"]
+resource_name = "goToMain"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_omtrn"]
+_data = {
+&"RESET": SubResource("Animation_omtrn"),
+&"goToMain": SubResource("Animation_feyax")
+}
+
+[node name="Node3D" unique_id=955176121 instance=ExtResource("1_ka2pi")]
+tutorial = true
+baseEnergyMaxAmount = 10.0
+baseEnergyEfficiency = 1.0
+upgradeEffLevel = 0
+upgradeEffLevelLimit = 20
+extraBatteries = 0
+extraBatteriesLimit = 4
+extraBetteriesMult = 3.0
+tempIncrease = 50.0
+coreUnsRate = 5.0
+tempNormalRate = 8.0
+pressNormalRate = 5.0
+energyDropRate = 1.0
+energyIncreaseDropRate = 2.0
+chanceToOutage = 0.2
+
+[node name="DialogueUI" parent="UI" parent_id_path=PackedInt32Array(1776955269) index="2" unique_id=1982816093]
+visible = true
+
+[node name="DialogueController" type="Node" parent="." index="8" unique_id=1212001537 node_paths=PackedStringArray("game", "dialogueTrigger", "circuitBreaker", "playButton", "tempButton", "shop")]
+script = ExtResource("2_feyax")
+game = NodePath("..")
+dialogueTrigger = NodePath("../Objects/DialogueTrigger")
+circuitBreaker = NodePath("../Objects/Interactables/lever")
+playButton = NodePath("../Objects/Interactables/PlayButton")
+tempButton = NodePath("../Objects/Interactables/temperatureBtn")
+shop = NodePath("../Objects/Interactables/Store")
+
+[node name="TempLocation" type="OmniLight3D" parent="DialogueController" index="0" unique_id=769630855]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4802604, 0.090556085, -3.1630952)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 2.295
+omni_attenuation = 0.517
+
+[node name="ValveLocation1" type="OmniLight3D" parent="DialogueController" index="1" unique_id=1205180076]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6946555, 0.090556085, 5.481753)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 2.295
+omni_attenuation = 0.517
+
+[node name="ValveLocation2" type="OmniLight3D" parent="DialogueController" index="2" unique_id=106094856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9385319, 0.090556085, -4.8809485)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 2.295
+omni_attenuation = 0.517
+
+[node name="ShopLocation" type="OmniLight3D" parent="DialogueController" index="3" unique_id=57336791]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6697955, 0.090556085, -0.72137487)
+visible = false
+light_color = Color(1, 0, 0, 1)
+light_energy = 16.0
+omni_range = 2.295
+omni_attenuation = 0.517
+
+[node name="CanvasLayer" type="CanvasLayer" parent="DialogueController" index="4" unique_id=79731758]
+
+[node name="ColorRect" type="ColorRect" parent="DialogueController/CanvasLayer" index="0" unique_id=1354747766]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueController/CanvasLayer/ColorRect" index="0" unique_id=744826942]
+libraries/ = SubResource("AnimationLibrary_omtrn")
+
+[connection signal="animation_finished" from="DialogueController/CanvasLayer/ColorRect/AnimationPlayer" to="DialogueController" method="_on_animation_player_animation_finished"]

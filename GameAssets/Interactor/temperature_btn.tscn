@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_68bb5"]
 [ext_resource type="PackedScene" uid="uid://bul86emshtvv4" path="res://Assets/Models/Separated/Button/botao.glb" id="2_b2rpj"]
 [ext_resource type="Script" uid="uid://pcyy5nrw8go0" path="res://GameAssets/Interactor/temperature_btn.gd" id="2_w7cp6"]
+[ext_resource type="AudioStream" uid="uid://cj4f7xfjjke7e" path="res://Assets/Sounds/buttonClick.wav" id="4_w7cp6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gxgbt"]
 radius = 0.14685078
@@ -101,5 +102,11 @@ grow_horizontal = 2
 
 [node name="buttonAnim" type="AnimationPlayer" parent="." index="3" unique_id=1512911088]
 libraries/ = SubResource("AnimationLibrary_ysce3")
+
+[node name="Click" type="AudioStreamPlayer3D" parent="." index="4" unique_id=2037856567]
+stream = ExtResource("4_w7cp6")
+volume_db = -10.0
+max_polyphony = 4
+bus = &"SFX"
 
 [editable path="botao2"]

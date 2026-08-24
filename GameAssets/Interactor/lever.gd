@@ -29,16 +29,19 @@ func resetInteractor():
 	
 	animateLever(animateOn)
 
-func moveLeverDown():
+func moveLeverDown(tutorial):
 	var leverTween = create_tween()
 	leverTween.tween_property(self, "rotation_degrees:x", min_angle, 0.2)
-	setActive(true)
+	
+	if !tutorial:
+		setActive(true)
 
 func animateLever(on):
 	var angleToAnimate = max_angle if on else min_angle
 	
 	var leverTween = create_tween()
 	leverTween.tween_property(self, "rotation_degrees:x", angleToAnimate, 0.2)
+	$Click.play()
 	
 	if !on:
 		return

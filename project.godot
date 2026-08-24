@@ -15,11 +15,18 @@ run/main_scene="uid://bvdynejf03fy6"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+general/default_playback_type.web=0
+
+[autoload]
+
+GlobalVar="*uid://ojc4dtsnsrjt"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 

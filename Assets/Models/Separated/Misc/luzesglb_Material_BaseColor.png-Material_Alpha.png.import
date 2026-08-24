@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo0asrmbajdca"
-path.s3tc="res://.godot/imported/cenarioBlender_Material_Metallic-Material_Roughness.png-b93f4efd3832de48a111cd6a7875d7a2.s3tc.ctex"
+uid="uid://blgxoqa7fnof3"
+path.s3tc="res://.godot/imported/luzesglb_Material_BaseColor.png-Material_Alpha.png-cfbc9295f26a72fc95aa24765b789c94.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f9321854f46967dd56d8b1b0cd1d549e"
+"md5": "f7f44ae5b5d5a5733a37675e4bc26747"
 }
 
 [deps]
 
-source_file="res://Assets/Models/cenarioBlender_Material_Metallic-Material_Roughness.png"
-dest_files=["res://.godot/imported/cenarioBlender_Material_Metallic-Material_Roughness.png-b93f4efd3832de48a111cd6a7875d7a2.s3tc.ctex"]
+source_file="res://Assets/Models/Separated/Misc/luzesglb_Material_BaseColor.png-Material_Alpha.png"
+dest_files=["res://.godot/imported/luzesglb_Material_BaseColor.png-Material_Alpha.png-cfbc9295f26a72fc95aa24765b789c94.s3tc.ctex"]
 
 [params]
 

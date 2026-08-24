@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://q76nfy7djljs"]
 
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_ukvt0"]
+
 [sub_resource type="Animation" id="Animation_gbq30"]
 length = 0.001
 tracks/0/type = "value"
@@ -37,6 +39,7 @@ _data = {
 }
 
 [node name="DialogueUI" type="Control" unique_id=1982816093]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,31 +48,53 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Canvas" type="CanvasLayer" parent="." unique_id=2502601]
+layer = 2
 
 [node name="Background" type="ColorRect" parent="Canvas" unique_id=244026571]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 438.0
+offset_top = 528.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Name" type="Label" parent="Canvas" unique_id=1831186921]
 offset_left = 10.0
-offset_top = 448.0
-offset_right = 247.0
-offset_bottom = 493.0
+offset_top = 543.845
+offset_right = 276.0
+offset_bottom = 588.84503
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_ukvt0")
 theme_override_font_sizes/font_size = 32
 text = "Misteious voice"
 
+[node name="Action" type="Label" parent="Canvas" unique_id=1673377843]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -311.35498
+offset_top = -45.0
+offset_right = -22.35498
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_ukvt0")
+theme_override_font_sizes/font_size = 20
+text = "Click to continue"
+horizontal_alignment = 2
+vertical_alignment = 1
+
 [node name="DialogueText" type="RichTextLabel" parent="Canvas" unique_id=579968919]
 offset_left = 10.0
-offset_top = 493.0
+offset_top = 598.32
 offset_right = 1020.0
-offset_bottom = 595.0
+offset_bottom = 700.32
+theme_override_fonts/normal_font = ExtResource("1_ukvt0")
 theme_override_font_sizes/normal_font_size = 20
 text = "Texto muito divertido para teste"
 visible_characters = 0

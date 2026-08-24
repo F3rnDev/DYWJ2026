@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://p85a58plaqef"]
+
+[ext_resource type="PackedScene" uid="uid://b5vx5r34u0fcq" path="res://Assets/Models/Separated/Pointer/PONTEIRO.glb" id="1_07l31"]
+[ext_resource type="Script" uid="uid://od3xjs3l7c3f" path="res://Assets/Models/Separated/Pointer/ponteiro.gd" id="2_so3is"]
+
+[node name="PONTEIRO" unique_id=1499691463 instance=ExtResource("1_07l31")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_so3is")

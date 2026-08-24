@@ -17,6 +17,9 @@ func playInteractor():
 	
 	anim.stop()
 	anim.play("press")
+	
+	$Click.pitch_scale = randf_range(0.8, 1.2)
+	$Click.play()
 
 func instacePointAdd(curEff:float):
 	var instance = pointAdd.instantiate()

@@ -7,6 +7,8 @@
 [ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="5_yxxqv"]
 [ext_resource type="LabelSettings" uid="uid://x6aqe7gcgyxu" path="res://Assets/Themes/option_audio.tres" id="6_o2ioj"]
 [ext_resource type="Shader" uid="uid://djvfhf0wvqcyo" path="res://GameAssets/ui/Menus/ScreenEffect/crt_effect.gdshader" id="7_o2ioj"]
+[ext_resource type="AudioStream" uid="uid://bugutwjcqa0aj" path="res://Assets/Sounds/HoverMenu.wav" id="8_2t0m1"]
+[ext_resource type="AudioStream" uid="uid://supb51l5oo8n" path="res://Assets/Sounds/ClickMenu.wav" id="9_q30k5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qi4d7"]
 font = ExtResource("5_yxxqv")
@@ -219,8 +221,21 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Audio" type="Node" parent="." unique_id=736200810]
+
+[node name="HoverMenu" type="AudioStreamPlayer" parent="Audio" unique_id=1063505615]
+stream = ExtResource("8_2t0m1")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickMenu" type="AudioStreamPlayer" parent="Audio" unique_id=1849542368]
+stream = ExtResource("9_q30k5")
+volume_db = -10.0
+bus = &"SFX"
+
 [connection signal="toggled" from="Panel/MarginContainer/VBoxContainer/VideoSettings/FullscreenOption/CheckButton" to="." method="_on_check_button_toggled"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/AudioSettings/Master/MasterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/AudioSettings/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Panel/MarginContainer/VBoxContainer/AudioSettings/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/Apply" to="." method="_on_apply_button_down"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/VBoxContainer/Apply" to="." method="_on_apply_mouse_entered"]

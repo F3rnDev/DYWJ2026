@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dowsaj0jej423" path="res://GameAssets/Interactor/playButton.gd" id="2_xfin3"]
 [ext_resource type="PackedScene" uid="uid://bul86emshtvv4" path="res://Assets/Models/Separated/Button/botao.glb" id="3_lqv2t"]
 [ext_resource type="PackedScene" uid="uid://dha1oj27scxuv" path="res://Assets/Models/Separated/Button/basebotao.glb" id="4_nj2cj"]
+[ext_resource type="AudioStream" uid="uid://cj4f7xfjjke7e" path="res://Assets/Sounds/buttonClick.wav" id="5_nj2cj"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_xfin3"]
 radius = 0.28128666
@@ -60,5 +61,11 @@ transform = Transform3D(1, 0, 0, 0, 0.49999997, 0.86602545, 0, -0.86602545, 0.49
 
 [node name="buttonAnim" type="AnimationPlayer" parent="." index="3" unique_id=1504896541]
 libraries/ = SubResource("AnimationLibrary_nj2cj")
+
+[node name="Click" type="AudioStreamPlayer3D" parent="." index="4" unique_id=464837321]
+stream = ExtResource("5_nj2cj")
+volume_db = -10.0
+max_polyphony = 4
+bus = &"SFX"
 
 [editable path="basebotao"]

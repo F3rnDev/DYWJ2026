@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c4c5xjnu5enki"]
+
+[ext_resource type="PackedScene" uid="uid://btakma30m7yqk" path="res://Assets/Models/Separated/Batery/bateria.glb" id="1_fx8l8"]
+[ext_resource type="PackedScene" uid="uid://baeq0eujga6gg" path="res://GameAssets/EnvironmentUI/batery_bar.tscn" id="2_jn375"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_jn375"]
+viewport_path = NodePath("SubViewport")
+
+[node name="battery" unique_id=1125441163 instance=ExtResource("1_fx8l8")]
+
+[node name="bateryBar" parent="." index="1" unique_id=743658284 instance=ExtResource("2_jn375")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0052649677, -0.17)
+texture = SubResource("ViewportTexture_jn375")

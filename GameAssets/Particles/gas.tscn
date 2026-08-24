@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://d3dnbra2351ed"]
+
+[sub_resource type="Curve" id="Curve_n67h0"]
+_data = [Vector2(0, 0), 0.0, 2.60148, 0, 0, Vector2(0.7467249, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_h5rxq"]
+curve = SubResource("Curve_n67h0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6r0kb"]
+lifetime_randomness = 0.07
+emission_shape_scale = Vector3(5.32, 1, 1)
+emission_shape = 2
+emission_sphere_radius = 0.15
+angle_min = 1.0728835e-05
+angle_max = 1.0728835e-05
+direction = Vector3(4.53, 2.735, 9.315)
+spread = 4.812
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.99997765
+gravity = Vector3(0, 3.68, -4.955)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+use_scale_3d = true
+scale_3d_min = Vector3(0.36, 0.36, 0.36)
+scale_3d_max = Vector3(1.345, 1.345, 1.345)
+scale_curve = SubResource("CurveTexture_h5rxq")
+turbulence_noise_strength = 8.81
+turbulence_noise_scale = 1.325
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0hnpq"]
+albedo_color = Color(0.36508796, 0.36508796, 0.3650879, 1)
+roughness = 0.67
+
+[sub_resource type="SphereMesh" id="SphereMesh_yfy64"]
+material = SubResource("StandardMaterial3D_0hnpq")
+radius = 0.125
+height = 0.25
+radial_segments = 12
+rings = 8
+
+[node name="Gas" type="GPUParticles3D" unique_id=417345593]
+transform = Transform3D(0.16888237, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transparency = 0.16
+cast_shadow = 0
+amount = 15
+lifetime = 0.5
+preprocess = 0.71
+randomness = 0.62
+fixed_fps = 24
+collision_base_size = 0.0
+process_material = SubResource("ParticleProcessMaterial_6r0kb")
+draw_pass_1 = SubResource("SphereMesh_yfy64")

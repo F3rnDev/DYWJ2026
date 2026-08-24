@@ -5,6 +5,9 @@
 [ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="1_ygd87"]
 [ext_resource type="LabelSettings" uid="uid://bv7dl78yohqrs" path="res://Assets/Themes/label_theme.tres" id="2_m3asw"]
 [ext_resource type="LabelSettings" uid="uid://bpm8r8pfx0kmy" path="res://Assets/Themes/game_over_text.tres" id="3_kyy2a"]
+[ext_resource type="AudioStream" uid="uid://bugutwjcqa0aj" path="res://Assets/Sounds/HoverMenu.wav" id="6_kd80r"]
+[ext_resource type="AudioStream" uid="uid://supb51l5oo8n" path="res://Assets/Sounds/ClickMenu.wav" id="7_ng33u"]
+[ext_resource type="AudioStream" uid="uid://0x2ha4oq6sex" path="res://Assets/Sounds/OpenUpgradeWindow.wav" id="8_ng33u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2f342"]
 shader = ExtResource("1_mro0i")
@@ -333,6 +336,25 @@ mouse_filter = 2
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1722340599]
 libraries/ = SubResource("AnimationLibrary_kd80r")
 
+[node name="Audio" type="Node" parent="." unique_id=1374456834]
+
+[node name="HoverMenu" type="AudioStreamPlayer" parent="Audio" unique_id=45371565]
+stream = ExtResource("6_kd80r")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickMenu" type="AudioStreamPlayer" parent="Audio" unique_id=1492327496]
+stream = ExtResource("7_ng33u")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Enter" type="AudioStreamPlayer" parent="Audio" unique_id=1408589703]
+stream = ExtResource("8_ng33u")
+volume_db = -10.0
+bus = &"SFX"
+
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/Restart" to="." method="_on_mouse_entered"]
 [connection signal="button_down" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_main_menu_button_down"]
+[connection signal="mouse_entered" from="Panel/MarginContainer/VBoxContainer/HBoxContainer/MainMenu" to="." method="_on_mouse_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

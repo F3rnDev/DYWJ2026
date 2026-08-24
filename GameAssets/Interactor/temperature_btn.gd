@@ -54,6 +54,9 @@ func playInteractor():
 	
 	anim.stop()
 	anim.play("press")
+	
+	$Click.pitch_scale = randf_range(0.8, 1.2)
+	$Click.play()
 
 	# Wait for the specified delay, then unlock the interaction
 	await get_tree().create_timer(click_cooldown).timeout

@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhw75ua4s7r16"
+uid="uid://dayptvlmsolhc"
 path.s3tc="res://.godot/imported/cenarioBlender_Material_Normal.png-89c2be77e2a43c2d268708739f0e5366.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "635ace8dd78c075b03bdfca42b052722"
 }
 
 [deps]

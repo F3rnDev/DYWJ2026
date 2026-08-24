@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://b7fc2m470cgsb" path="res://Assets/Images/core.png" id="3_ekhup"]
 [ext_resource type="PackedScene" uid="uid://cfu4jqwlha7tr" path="res://GameAssets/ui/Menus/settings_menu_ui.tscn" id="4_bjrwl"]
 [ext_resource type="Shader" uid="uid://djvfhf0wvqcyo" path="res://GameAssets/ui/Menus/ScreenEffect/crt_effect.gdshader" id="6_swyl6"]
+[ext_resource type="LabelSettings" uid="uid://v1mt8f7cj5pl" path="res://Assets/Themes/section_theme.tres" id="8_dxywd"]
+[ext_resource type="LabelSettings" uid="uid://bv7dl78yohqrs" path="res://Assets/Themes/label_theme.tres" id="8_g6tgm"]
+[ext_resource type="AudioStream" uid="uid://bugutwjcqa0aj" path="res://Assets/Sounds/HoverMenu.wav" id="10_h0sfi"]
+[ext_resource type="AudioStream" uid="uid://supb51l5oo8n" path="res://Assets/Sounds/ClickMenu.wav" id="11_5ijkm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_551l1"]
 font = ExtResource("1_a8ita")
@@ -191,6 +195,71 @@ text = "Quit"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=430577682]
 libraries/ = SubResource("AnimationLibrary_ekhup")
 
+[node name="SettingsMenu" parent="." unique_id=601259692 instance=ExtResource("4_bjrwl")]
+visible = false
+
+[node name="popup" type="Control" parent="." unique_id=1066815848]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="PanelContainer" parent="popup" unique_id=368341402]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -162.75
+offset_right = 350.0
+offset_bottom = 162.75
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"SettingsPanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="popup/MarginContainer" unique_id=815046423]
+layout_mode = 2
+theme_override_constants/separation = 61
+
+[node name="Label3" type="Label" parent="popup/MarginContainer/VBoxContainer" unique_id=804034496]
+layout_mode = 2
+text = "Warning"
+label_settings = ExtResource("8_g6tgm")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="popup/MarginContainer/VBoxContainer" unique_id=1530157139]
+layout_mode = 2
+text = "Would'd like to play the tutorial?"
+label_settings = ExtResource("8_dxywd")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="popup/MarginContainer/VBoxContainer" unique_id=1368741616]
+layout_mode = 2
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="yes" type="Button" parent="popup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1984732622]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"SettingsButtons"
+text = "Yes!"
+
+[node name="no" type="Button" parent="popup/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1541349496]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("1_m2x1y")
+theme_type_variation = &"SettingsButtons"
+text = "No! Skip."
+
 [node name="FadeInOut" type="ColorRect" parent="." unique_id=1127858464]
 anchors_preset = 15
 anchor_right = 1.0
@@ -199,9 +268,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
-
-[node name="SettingsMenu" parent="." unique_id=601259692 instance=ExtResource("4_bjrwl")]
-visible = false
 
 [node name="Control" type="ColorRect" parent="." unique_id=1485422082]
 material = SubResource("ShaderMaterial_ekhup")
@@ -212,13 +278,37 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="Audio" type="Node" parent="." unique_id=1690091069]
+
+[node name="HoverMenu" type="AudioStreamPlayer" parent="Audio" unique_id=1723133513]
+stream = ExtResource("10_h0sfi")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ClickMenu" type="AudioStreamPlayer" parent="Audio" unique_id=417258335]
+stream = ExtResource("11_5ijkm")
+volume_db = -10.0
+bus = &"SFX"
+
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="Play" to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_entered" from="Play" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Play" to="." method="_on_play_mouse_exited"]
 [connection signal="button_down" from="Settings" to="." method="_on_settings_button_down"]
+[connection signal="button_down" from="Settings" to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="Settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_entered" from="Settings" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Settings" to="." method="_on_settings_mouse_exited"]
 [connection signal="button_down" from="Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="Quit" to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="Quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="mouse_entered" from="Quit" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="button_down" from="popup/MarginContainer/VBoxContainer/HBoxContainer/yes" to="." method="_on_yes_button_down"]
+[connection signal="button_down" from="popup/MarginContainer/VBoxContainer/HBoxContainer/yes" to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="popup/MarginContainer/VBoxContainer/HBoxContainer/yes" to="." method="_on_mouse_entered"]
+[connection signal="button_down" from="popup/MarginContainer/VBoxContainer/HBoxContainer/no" to="." method="_on_no_button_down"]
+[connection signal="button_down" from="popup/MarginContainer/VBoxContainer/HBoxContainer/no" to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="popup/MarginContainer/VBoxContainer/HBoxContainer/no" to="." method="_on_mouse_entered"]

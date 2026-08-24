@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://djxicvmt84l02"]
+
+[ext_resource type="FontFile" uid="uid://dqu7wdvtlb12r" path="res://Assets/Fonts/BlackOpsOne-Regular.ttf" id="1_acwmd"]
+[ext_resource type="Script" uid="uid://b1r3rpd0s6pvr" path="res://GameAssets/ui/Menus/win_game.gd" id="1_jnim4"]
+[ext_resource type="Theme" uid="uid://dcndfgcjnjr5a" path="res://Assets/Themes/game_theme.tres" id="2_njh4t"]
+
+[sub_resource type="Animation" id="Animation_kr6iy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jnim4"]
+resource_name = "start"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.20000005, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.9666667, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kr6iy"]
+_data = {
+&"RESET": SubResource("Animation_kr6iy"),
+&"start": SubResource("Animation_jnim4")
+}
+
+[node name="WinGame" type="Control" unique_id=914703493]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jnim4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1343673115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1034356345]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -33.0
+offset_right = 351.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_acwmd")
+theme_override_font_sizes/font_size = 52
+text = "You found the singularity"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1906021007]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 104.04999
+offset_right = 20.0
+offset_bottom = 144.0498
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 98
+
+[node name="Restart" type="Button" parent="HBoxContainer" unique_id=1621591761]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_njh4t")
+theme_type_variation = &"SettingsButtons"
+text = "Restart"
+
+[node name="MainMenu" type="Button" parent="HBoxContainer" unique_id=465918584]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_njh4t")
+theme_type_variation = &"SettingsButtons"
+text = "Main menu"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1623470974]
+libraries/ = SubResource("AnimationLibrary_kr6iy")
+autoplay = &"start"
+
+[connection signal="button_down" from="HBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/Restart" to="." method="_on_mouse_entered"]
+[connection signal="button_down" from="HBoxContainer/MainMenu" to="." method="_on_main_menu_button_down"]

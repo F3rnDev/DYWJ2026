@@ -3,6 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://6u3lo4nnjhvl" path="res://GameAssets/Interactor/interactor.tscn" id="1_4wjri"]
 [ext_resource type="Script" uid="uid://ca1avpllufvke" path="res://GameAssets/Interactor/valve.gd" id="2_oo7tb"]
 [ext_resource type="PackedScene" uid="uid://uihwp6rd4tyl" path="res://Assets/Models/Separated/Valve/valvula.glb" id="2_w86s8"]
+[ext_resource type="PackedScene" uid="uid://d3dnbra2351ed" path="res://GameAssets/Particles/gas.tscn" id="4_gdhq3"]
+[ext_resource type="AudioStream" uid="uid://bcxoe6ndct7dt" path="res://Assets/Sounds/TurnValve.wav" id="5_tc3o5"]
+[ext_resource type="AudioStream" uid="uid://cu7h8o6csxmdy" path="res://Assets/Sounds/pressureRelease.wav" id="6_p0yua"]
+[ext_resource type="AudioStream" uid="uid://ce2bxettt5ha5" path="res://Assets/Sounds/pipeTremble.wav" id="7_tkbdx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oo7tb"]
 radius = 0.3618201
@@ -16,5 +20,23 @@ objectMesh = NodePath("valvula/valvula1_001")
 shape = SubResource("SphereShape3D_oo7tb")
 
 [node name="valvula" parent="." index="1" unique_id=1514814699 instance=ExtResource("2_w86s8")]
+
+[node name="Gas" parent="." index="2" unique_id=417345593 instance=ExtResource("4_gdhq3")]
+transform = Transform3D(0.16888237, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.14362475)
+
+[node name="TurnValve" type="AudioStreamPlayer3D" parent="." index="3" unique_id=523237179]
+stream = ExtResource("5_tc3o5")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="ReleasePressure" type="AudioStreamPlayer3D" parent="." index="4" unique_id=612044125]
+stream = ExtResource("6_p0yua")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Tremble" type="AudioStreamPlayer3D" parent="." index="5" unique_id=758893999]
+stream = ExtResource("7_tkbdx")
+volume_db = -15.0
+bus = &"SFX"
 
 [editable path="valvula"]
